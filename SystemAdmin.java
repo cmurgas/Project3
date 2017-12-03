@@ -1,16 +1,20 @@
 package project3;
 public class SystemAdmin extends Account {
 
-    public SystemAdmin(String firstName, String LastName, String Password, String email, String UserName, String PhoneNumber) {
-        super(firstName, LastName, Password, PhoneNumber, email, UserName);
-    }
-    
-    public String getPassoword(){
-        return this.Password; 
-    }
-    
-    public String getAccountLogin(String userName){
-        return this.UserName;
+    public class SystemAdmin extends Account {
+
+    public SystemAdmin(String firstName,
+                       String lastName,
+                       String userName,
+                       String password,
+                       String email,
+                       String phoneNumber) {
+        super(firstName,
+                lastName,
+                userName,
+                password,
+                email,
+                phoneNumber);
     }
     
     
