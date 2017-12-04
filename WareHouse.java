@@ -223,5 +223,23 @@ public class WareHouse {
     * @return File file of BikePart information for a Warehouse (or van)
     */
    public File getFile(){ return file; }
+   
+   public void readInventoryUpdate(File file) {
+        try{
+            Scanner update = new Scanner(file);
+            while(update.hasNextLine()){
+                String u = update.nextLine();
+                String[] uu = u.split(",");
+                BikePart nbp = new BikePart ((uu[0]),
+                        Integer.parseInt(uu[1]),
+                        Double.parseDouble(uu[2]),
+                        Double.parseDouble(uu[3]),
+                        uu[4].equals("true"),
+                        Integer.parseInt(uu[5]));
+                wareHouse.add(nbp);
+            }
+        } catch (Exception e) { e.printStackTrace(); }
+        
+    }
 
 }
