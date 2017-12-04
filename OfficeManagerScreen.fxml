@@ -4,39 +4,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project3.LoginController">
     <children>
         <TabPane layoutY="42.0" prefHeight="357.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Bike Parts">
                     <content>
-                        <TreeTableView prefHeight="200.0" prefWidth="200.0">
-                            <columns>
-                                <TreeTableColumn prefWidth="75.0" text="C1" />
-                                <TreeTableColumn prefWidth="75.0" text="C2" />
-                            </columns>
-                        </TreeTableView>
+                        
                     </content>
                     <content>
                         <AnchorPane fx:id="bikeparts_tab" prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <TreeTableView fx:id="bikeparts_tree" prefHeight="140.0" prefWidth="600.0">
-                                    <columns>
-                                        <TreeTableColumn fx:id="om_bikename" prefWidth="167.20001220703125" text="Bike Name" />
-                                        <TreeTableColumn fx:id="om_bikenumber" prefWidth="131.20001220703125" text="Bike Number" />
-                                        <TreeTableColumn fx:id="om_listPice" minWidth="0.0" prefWidth="68.0" text="List Price" />
-                                        <TreeTableColumn fx:id="om_salesPrice" minWidth="3.99993896484375" prefWidth="67.20001220703125" text="Sales Price" />
-                                        <TreeTableColumn fx:id="om_onSale" minWidth="3.20001220703125" prefWidth="79.2000732421875" text="On Sale" />
-                                        <TreeTableColumn fx:id="om_quantity" prefWidth="83.20001220703125" text="Quantity" />
-                                    </columns>
-                                </TreeTableView>
                                 <TextField fx:id="om_search_name" layoutX="87.0" layoutY="179.0" />
                                 <TextField fx:id="om_search_number" layoutX="87.0" layoutY="212.0" />
                                 <Label layoutX="34.0" layoutY="183.0" text="Name:" />
@@ -44,6 +29,16 @@
                                 <TextArea fx:id="om_display_bike" layoutX="28.0" layoutY="240.0" prefHeight="80.0" prefWidth="208.0" />
                                 <Button fx:id="search" layoutX="106.0" layoutY="151.0" mnemonicParsing="false" text="Search" />
                                 <Button fx:id="order_parts" layoutX="386.0" layoutY="151.0" mnemonicParsing="false" onAction="#doOrderOM" text="Order Parts" />
+                        <TableView fx:id="bikeparts_tree" layoutX="4.0" layoutY="5.0" prefHeight="139.0" prefWidth="590.0">
+                          <columns>
+                            <TableColumn fx:id="om_bikename" prefWidth="124.0" text="Bike Name" />
+                            <TableColumn fx:id="om_bikenumber" prefWidth="130.39996337890625" text="Bike Number" />
+                              <TableColumn fx:id="om_listPrice" prefWidth="80.00006103515625" text="List Price" />
+                              <TableColumn fx:id="om_salesPrice" prefWidth="83.199951171875" text="Sales Price" />
+                              <TableColumn fx:id="om_onSale" prefWidth="87.199951171875" text="On Sale" />
+                              <TableColumn fx:id="om_quantity" prefWidth="100.00006103515625" text="Quantity" />
+                          </columns>
+                        </TableView>
                             </children>
                         </AnchorPane>
                     </content>
