@@ -2,22 +2,22 @@ package project3;
 
 /**
  *
- * @author Karen Cassine
+ * @author Karen Cassine, Katie Lamb
  */
 public class SalesAssociate extends Account{
 
-    public SalesAssociate(String firstName, String LastName, String Password, String email, String UserName, String PhoneNumber) {
-        super(firstName, LastName, Password, PhoneNumber, email, UserName);
+    public SalesAssociate(String firstName, String lastName, String userName, String password, String email, String phoneNumber) {
+        super(firstName, lastName, userName, password, email, phoneNumber);
     }
     
-    
-    public String getPassoword(){
-        return this.password; 
+    public String getUserName(String userName){
+        return super.getUserName();
     }
-    
-    public String getAccountLogin(String userName){
-        return this.userName;
+
+    public String getPassword(){
+        return super.getPassword();
     }
 }
+
 
 
