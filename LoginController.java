@@ -82,6 +82,50 @@ public class LoginController {
     private Button salesCommissionButton; // Value injected by FXMLLoader
 
 
+    //Sales Associate Screen Fields
+    @FXML // fx:id="sa_menuBar"
+    private MenuButton sa_menuBar; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_displayActions"
+    private TextArea sa_displayActions; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_load_partName"
+    private TableColumn<?, ?> sa_load_partName; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_mainWareHouseQuan"
+    private TableColumn<?, ?> sa_mainWareHouseQuan; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_vanQuan"
+    private TableColumn<?, ?> sa_vanQuan; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_transferNum"
+    private TableColumn<?, ?> sa_transferNum; // Value injected by FXMLLoader
+
+    @FXML // fx:id="loadVanButton"
+    private Button loadVanButton; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_sell_partName"
+    private TableColumn<?, ?> sa_sell_partName; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_numAvalible"
+    private TableColumn<?, ?> sa_numAvalible; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_sell"
+    private TableColumn<?, ?> sa_sell; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_startDate"
+    private DatePicker sa_startDate; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_endDate"
+    private DatePicker sa_endDate; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sa_salesAssociates"
+    private ComboBox<?> sa_salesAssociates; // Value injected by FXMLLoader
+
+    @FXML // fx:id="GenerateButton"
+    private Button GenerateButton; // Value injected by FXMLLoader
+
+
     //Login Screen Actions
     @FXML
     void doLogin(ActionEvent event) {
@@ -158,6 +202,17 @@ public class LoginController {
 
     @FXML
     void doSalesCommission(ActionEvent event) {
+
+    }
+
+    //Sales Associate Screen Actions
+    @FXML
+    void doInvoice(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doLoadVan(ActionEvent event) {
 
     }
 }
