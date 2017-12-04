@@ -2,24 +2,31 @@ package project3;
 
 /**
  *
- * @author Karen Cassine
+ * @author Karen Cassine, Katie Lamb
  */
-public class OfficeManager extends Account{
+public class OfficeManager extends Account {
 
-    public OfficeManager(String firstName, String LastName, String Password, String email, String UserName, String PhoneNumber) {
-        super(firstName, LastName, Password, PhoneNumber, email, UserName);
+    public OfficeManager(String firstName,
+                            String lastName,
+                            String userName,
+                            String password,
+                            String email,
+                            String phoneNumber) {
+        super(firstName,
+                lastName,
+                userName,
+                password,
+                email,
+                phoneNumber);
     }
-    
-   
-    
-    
-  public String getPassoword(){
-        return this.password; 
+
+    public String getUserName(){
+        return super.getUserName();
     }
-    
-    public String getAccountLogin(String userName){
-       return this.userName;
-    }  
+
+    public String getPassword(){
+        return super.getPassword();
+    }
     
     public void orderParts(BikePart part, int amount){
         part.setQuantity(part.getQuantity()+amount);
