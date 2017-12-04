@@ -3,13 +3,13 @@
  */
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+        import javafx.fxml.FXML;
+        import javafx.fxml.FXMLLoader;
+        import javafx.scene.Parent;
+        import javafx.scene.Scene;
+        import javafx.scene.control.*;
+        import javafx.scene.layout.AnchorPane;
+        import javafx.stage.Stage;
 
 
 public class LoginController {
@@ -209,6 +209,29 @@ public class LoginController {
     private Button admin_deleteWMButton; // Value injected by FXMLLoader
 
 
+    //WareHouse Manager Screen Fields
+    @FXML // fx:id="wm_filename"
+    private TextField wm_filename; // Value injected by FXMLLoader
+
+    @FXML // fx:id="updated_warehouse"
+    private TextArea updated_warehouse; // Value injected by FXMLLoader
+
+    @FXML // fx:id="read_file"
+    private Button read_file; // Value injected by FXMLLoader
+
+    @FXML // fx:id="wm_bikename"
+    private TextField wm_bikename; // Value injected by FXMLLoader
+
+    @FXML // fx:id="wm_bikenumber"
+    private TextField wm_bikenumber; // Value injected by FXMLLoader
+
+    @FXML // fx:id="dispalybike"
+    private TextArea dispalybike; // Value injected by FXMLLoader
+
+    @FXML // fx:id="examine"
+    private Button examine; // Value injected by FXMLLoader
+
+
     //Login Screen Actions
     @FXML
     void doLogin(ActionEvent event) {
@@ -333,6 +356,18 @@ public class LoginController {
 
     @FXML
     void doSave(ActionEvent event) {
+
+    }
+
+
+    //WareHouse Manager Screen Actions
+    @FXML
+    void doExamin(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doRead(ActionEvent event) {
 
     }
 }
