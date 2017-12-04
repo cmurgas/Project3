@@ -126,6 +126,89 @@ public class LoginController {
     private Button GenerateButton; // Value injected by FXMLLoader
 
 
+    //System Admin Screen Fields
+    @FXML // fx:id="admin_FirstNameOM"
+    private TreeTableColumn<?, ?> admin_FirstNameOM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_lastNameOM"
+    private TreeTableColumn<?, ?> admin_lastNameOM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_usernameOM"
+    private TreeTableColumn<?, ?> admin_usernameOM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_passwordOM"
+    private TreeTableColumn<?, ?> admin_passwordOM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_emailOM"
+    private TreeTableColumn<?, ?> admin_emailOM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_phoneOM"
+    private TreeTableColumn<?, ?> admin_phoneOM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_createOMButton"
+    private Button admin_createOMButton; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_SaveButton"
+    private Button admin_SaveButton; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_deleteButton"
+    private Button admin_deleteButton; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_firstNameSA"
+    private TreeTableColumn<?, ?> admin_firstNameSA; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_lastNameSA"
+    private TreeTableColumn<?, ?> admin_lastNameSA; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_userNameSA"
+    private TreeTableColumn<?, ?> admin_userNameSA; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_passwordSA"
+    private TreeTableColumn<?, ?> admin_passwordSA; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_emailSA"
+    private TreeTableColumn<?, ?> admin_emailSA; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_phoneSA"
+    private TreeTableColumn<?, ?> admin_phoneSA; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_vanSA"
+    private TreeTableColumn<?, ?> admin_vanSA; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_createSAButton"
+    private Button admin_createSAButton; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_saveButton"
+    private Button admin_saveButton; // Value injected by FXMLLoader
+
+    @FXML // fx:id="deleteASButton"
+    private Button deleteASButton; // Value injected by FXMLLoader
+
+    @FXML // fx:id="firstNameWM"
+    private TreeTableColumn<?, ?> firstNameWM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="lastNameWM"
+    private TreeTableColumn<?, ?> lastNameWM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="usernameWM"
+    private TreeTableColumn<?, ?> usernameWM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="passwirdWM"
+    private TreeTableColumn<?, ?> passwirdWM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="emailWM"
+    private TreeTableColumn<?, ?> emailWM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="phoneWM"
+    private TreeTableColumn<?, ?> phoneWM; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_createWMButton"
+    private Button admin_createWMButton; // Value injected by FXMLLoader
+
+    @FXML // fx:id="admin_deleteWMButton"
+    private Button admin_deleteWMButton; // Value injected by FXMLLoader
+
+
     //Login Screen Actions
     @FXML
     void doLogin(ActionEvent event) {
@@ -213,6 +296,43 @@ public class LoginController {
 
     @FXML
     void doLoadVan(ActionEvent event) {
+
+    }
+
+
+    //System Admin Screen Actions
+    @FXML
+    void doCreate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doCreateSA(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doCreateWM(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doDeleteOM(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doDeleteSA(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doDeleteWM(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doSave(ActionEvent event) {
 
     }
 }
