@@ -59,19 +59,13 @@ public class AccountFleet {
     }
 
     
-    public boolean accountExist(String string){
-
-        Scanner contains = new Scanner(System.in);
-        System.out.println("Enter account name.");
-        String contain = contains.next();
-        for(int x=0; x< accountFleet.size(); x++){
-            if (accountFleet.contains(contains)){
-                return true;
-            }else{
-                return false;
-            }
+    public boolean accountExists(Account account){
+        boolean exists = false;
+        for(Account a : accountFleet){
+            if (accountFleet.contains(account))
+                exists = true;
         }
-        return true;
+        return exists;
     }
 
     public void removeAccount(String string){
@@ -88,7 +82,10 @@ public class AccountFleet {
 
 
     public void addAccount(Account account){
-        accountFleet.add(account);
+        if (accountFleet != null)
+            accountFleet.add(account);
+        else
+            System.out.println("accountFleet not found");
     }
 }
 
