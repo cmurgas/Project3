@@ -1,9 +1,10 @@
 package project3;
+
+import java.util.Scanner;
+
 public class SystemAdmin extends Account {
 
-    public class SystemAdmin extends Account {
-
-    public SystemAdmin(String firstName,
+    public SystemAdmin(String firstName, 
                        String lastName,
                        String userName,
                        String password,
@@ -16,25 +17,27 @@ public class SystemAdmin extends Account {
                 email,
                 phoneNumber);
     }
-    
-    
-    
-    
-    public void changePassword(){
-        Scanner password = new Scanner(System.in); 
-        System.out.println("What is your old password?");
-        String pass = password.next(); 
-        if(pass.equals(Password)){
-            Scanner newPass = new Scanner(System.in);
-            System.out.println("What is your new password?");
-            this.Password = Password; 
-        } else{
-            System.out.println("Incorrect Password");
-        }
-        
-        
-    }
-        
 
+    public String getUserName(){
+        return super.getUserName();
+    }
     
+    public String getPassword(){
+        return super.getPassword();
+    }
+
+        /*public void changePassword(){
+            Scanner password = new Scanner(System.in);
+            System.out.println("What is your old password?");
+            String pass = password.next();
+            if(pass.equals(password)){
+                Scanner newPass = new Scanner(System.in);
+                System.out.println("What is your new password?");
+                this.password = password;
+            } else{
+                System.out.println("Incorrect Password");
+            }
+
+
+        }*/
 }
