@@ -10,6 +10,9 @@ import javafx.event.ActionEvent;
         import javafx.scene.control.*;
         import javafx.scene.layout.AnchorPane;
         import javafx.stage.Stage;
+        import javafx.collections.FXCollections;
+        import javafx.collections.ObservableList;
+        import javafx.scene.control.cell.PropertyValueFactory;
 
 
 public class LoginController {
@@ -30,27 +33,26 @@ public class LoginController {
     @FXML // fx:id="bikeparts_tab"
     private AnchorPane bikeparts_tab; // Value injected by FXMLLoader
 
-    @FXML // fx:id="bikeparts_tree"
-    private TreeTableView<?> bikeparts_tree; // Value injected by FXMLLoader
+    @FXML
+    private TableView<BikePart> bikeparts_tree;
 
-    @FXML // fx:id="om_bikename"
-    private TreeTableColumn<?, ?> om_bikename; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<BikePart, String> om_bikename;
 
-    @FXML // fx:id="om_bikenumber"
-    private TreeTableColumn<?, ?> om_bikenumber; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<BikePart, Integer> om_bikenumber;
 
-    @FXML // fx:id="om_listPice"
-    private TreeTableColumn<?, ?> om_listPice; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<BikePart, Double> om_listPrice;
 
-    @FXML // fx:id="om_salesPrice"
-    private TreeTableColumn<?, ?> om_salesPrice; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<BikePart, Double> om_salesPrice;
 
-    @FXML // fx:id="om_onSale"
-    private TreeTableColumn<?, ?> om_onSale; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<BikePart, Boolean> om_onSale;
 
-    @FXML // fx:id="om_quantity"
-    private TreeTableColumn<?, ?> om_quantity; // Value injected by FXMLLoader
-
+    @FXML
+    private TableColumn<BikePart, Integer> om_quantity;
     @FXML // fx:id="om_search_name"
     private TextField om_search_name; // Value injected by FXMLLoader
 
@@ -231,6 +233,12 @@ public class LoginController {
     @FXML // fx:id="examine"
     private Button examine; // Value injected by FXMLLoader
 
+    public final ObservableList<BikePart> data
+            = FXCollections.observableArrayList(
+                    new BikePart("red",123,23.0,12.0,true,5),
+                    new BikePart("blue",234,17.0,13.0,false,6)
+            )
+        ;
 
     //Login Screen Actions
     @FXML
