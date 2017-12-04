@@ -235,9 +235,7 @@ public class LoginController {
     //Login Screen Actions
     @FXML
     void doLogin(ActionEvent event) {
-        accountFleet = new AccountFleet();
-        accountFleet.addAccount(new SystemAdmin("katie","lamb","klamb3","bmal","no","7"));
-        accountFleet.saveAccountChanges();
+        Account account1 = new SystemAdmin("","","admin","nimda","","");
 
 
         String userName = userNameField.getText();
@@ -247,13 +245,12 @@ public class LoginController {
         Stage stage = null;
         Parent root = null;
 
-        for (Account a : accountFleet.getAccounts()){
-            if ((a.getUserName().equals(userName) && a.getPassword().equals(password))){
-                account =  a;
-                System.out.println(a.getPassword());
-            }
-        }
-        if (account instanceof SalesAssociate){
+        //for (Account a : accountFleet.getAccounts()){
+            //if ((account1.getUserName().equals(userName) && account1.getPassword().equals(password))){
+                //account =  a;
+            //}
+        //}
+        if (account1 instanceof SalesAssociate){
             try {
                 stage = (Stage) loginButton.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("SalesAssociateScreen.fxml"));
@@ -264,7 +261,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
-        else if (account instanceof WareHouseManager){
+        else if (account1 instanceof WareHouseManager){
             try {
                 stage = (Stage) loginButton.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("WareHouseManagerScreen.fxml"));
@@ -275,7 +272,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
-        else if (account instanceof  OfficeManager){
+        else if (account1 instanceof  OfficeManager){
             try {
                 stage = (Stage) loginButton.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("OfficeManagerScreen.fxml"));
@@ -286,7 +283,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
-        else if (account instanceof SystemAdmin){
+        else if (account1 instanceof SystemAdmin){
             try {
                 stage = (Stage) loginButton.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("SystemAdminScreen.fxml"));
