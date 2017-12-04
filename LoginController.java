@@ -16,8 +16,9 @@ import javafx.event.ActionEvent;
 
 
 public class LoginController {
-    AccountFleet accountFleet;
-
+    WareHouse mainWareHouse;
+    String currentUser;
+        
     //Login in Screen Fields
     @FXML // fx:id="passwordField"
     private TextField passwordField; // Value injected by FXMLLoader
@@ -29,7 +30,6 @@ public class LoginController {
     private Button loginButton; // Value injected by FXMLLoader
 
     //Office Manager Screen Fields
-
     @FXML // fx:id="bikeparts_tab"
     private AnchorPane bikeparts_tab; // Value injected by FXMLLoader
 
@@ -53,6 +53,7 @@ public class LoginController {
 
     @FXML
     private TableColumn<BikePart, Integer> om_quantity;
+        
     @FXML // fx:id="om_search_name"
     private TextField om_search_name; // Value injected by FXMLLoader
 
@@ -85,6 +86,9 @@ public class LoginController {
 
 
     //Sales Associate Screen Fields
+    @FXML // fx:id="sellTextArea"
+    private TextArea sellTextArea; // Value injected by FXMLLoader
+
     @FXML // fx:id="sa_menuBar"
     private MenuButton sa_menuBar; // Value injected by FXMLLoader
 
@@ -106,14 +110,29 @@ public class LoginController {
     @FXML // fx:id="loadVanButton"
     private Button loadVanButton; // Value injected by FXMLLoader
 
-    @FXML // fx:id="sa_sell_partName"
-    private TableColumn<?, ?> sa_sell_partName; // Value injected by FXMLLoader
+    @FXML // fx:id="salesTable"
+    private TreeTableView<?> salesTable; // Value injected by FXMLLoader
 
-    @FXML // fx:id="sa_numAvalible"
-    private TableColumn<?, ?> sa_numAvalible; // Value injected by FXMLLoader
+    @FXML // fx:id="sellPartNameColumn"
+    private TreeTableColumn<?, ?> sellPartNameColumn; // Value injected by FXMLLoader
 
-    @FXML // fx:id="sa_sell"
-    private TableColumn<?, ?> sa_sell; // Value injected by FXMLLoader
+    @FXML // fx:id="sellPartNumberColumn"
+    private TreeTableColumn<?, ?> sellPartNumberColumn; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sellVanAmountColumn"
+    private TreeTableColumn<?, ?> sellVanAmountColumn; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sellPartNameField"
+    private TextField sellPartNameField; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sellAmountField"
+    private TextField sellAmountField; // Value injected by FXMLLoader
+
+    @FXML // fx:id="addPartToSale"
+    private Button addPartToSale; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sellButton"
+    private Button sellButton; // Value injected by FXMLLoader
 
     @FXML // fx:id="sa_startDate"
     private DatePicker sa_startDate; // Value injected by FXMLLoader
@@ -129,86 +148,38 @@ public class LoginController {
 
 
     //System Admin Screen Fields
-    @FXML // fx:id="admin_FirstNameOM"
-    private TreeTableColumn<?, ?> admin_FirstNameOM; // Value injected by FXMLLoader
+    @FXML
+    private TextField newOmField;
 
-    @FXML // fx:id="admin_lastNameOM"
-    private TreeTableColumn<?, ?> admin_lastNameOM; // Value injected by FXMLLoader
+    @FXML
+    private Button newOmButton;
 
-    @FXML // fx:id="admin_usernameOM"
-    private TreeTableColumn<?, ?> admin_usernameOM; // Value injected by FXMLLoader
+    @FXML
+    private TextField deleteOmField;
 
-    @FXML // fx:id="admin_passwordOM"
-    private TreeTableColumn<?, ?> admin_passwordOM; // Value injected by FXMLLoader
+    @FXML
+    private Button deleteOmButton;
 
-    @FXML // fx:id="admin_emailOM"
-    private TreeTableColumn<?, ?> admin_emailOM; // Value injected by FXMLLoader
+    @FXML
+    private TextField newSaField;
 
-    @FXML // fx:id="admin_phoneOM"
-    private TreeTableColumn<?, ?> admin_phoneOM; // Value injected by FXMLLoader
+    @FXML
+    private Button newSaButton;
 
-    @FXML // fx:id="admin_createOMButton"
-    private Button admin_createOMButton; // Value injected by FXMLLoader
+    @FXML
+    private TextField deleteSaField;
 
-    @FXML // fx:id="admin_SaveButton"
-    private Button admin_SaveButton; // Value injected by FXMLLoader
+    @FXML
+    private Button deleteSaButton;
 
-    @FXML // fx:id="admin_deleteButton"
-    private Button admin_deleteButton; // Value injected by FXMLLoader
+    @FXML
+    private Button newWmButton;
 
-    @FXML // fx:id="admin_firstNameSA"
-    private TreeTableColumn<?, ?> admin_firstNameSA; // Value injected by FXMLLoader
+    @FXML
+    private TextField deleteWmField;
 
-    @FXML // fx:id="admin_lastNameSA"
-    private TreeTableColumn<?, ?> admin_lastNameSA; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_userNameSA"
-    private TreeTableColumn<?, ?> admin_userNameSA; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_passwordSA"
-    private TreeTableColumn<?, ?> admin_passwordSA; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_emailSA"
-    private TreeTableColumn<?, ?> admin_emailSA; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_phoneSA"
-    private TreeTableColumn<?, ?> admin_phoneSA; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_vanSA"
-    private TreeTableColumn<?, ?> admin_vanSA; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_createSAButton"
-    private Button admin_createSAButton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_saveButton"
-    private Button admin_saveButton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="deleteASButton"
-    private Button deleteASButton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="firstNameWM"
-    private TreeTableColumn<?, ?> firstNameWM; // Value injected by FXMLLoader
-
-    @FXML // fx:id="lastNameWM"
-    private TreeTableColumn<?, ?> lastNameWM; // Value injected by FXMLLoader
-
-    @FXML // fx:id="usernameWM"
-    private TreeTableColumn<?, ?> usernameWM; // Value injected by FXMLLoader
-
-    @FXML // fx:id="passwirdWM"
-    private TreeTableColumn<?, ?> passwirdWM; // Value injected by FXMLLoader
-
-    @FXML // fx:id="emailWM"
-    private TreeTableColumn<?, ?> emailWM; // Value injected by FXMLLoader
-
-    @FXML // fx:id="phoneWM"
-    private TreeTableColumn<?, ?> phoneWM; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_createWMButton"
-    private Button admin_createWMButton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="admin_deleteWMButton"
-    private Button admin_deleteWMButton; // Value injected by FXMLLoader
+    @FXML
+    private Button deleteWmButton;
 
 
     //WareHouse Manager Screen Fields
@@ -318,6 +289,16 @@ public class LoginController {
 
     //Sales Associate Screen Actions
     @FXML
+    void doAdd(ActionEvent event) {
+        String bikePartName = sellPartNameField.getText();
+        BikePart bp = mainWareHouse.returnBikePart(bikePartName);
+        int sellAmount = Integer.parseInt(sellAmountField.getText());
+        //String textContainer = null;
+        //textContainer += (bp.getName() + "," + bp.getNumber() + "," + bp.getPrice() + "," + sellAmount + "\n");
+        sellTextArea.setText(""/*find a way to add to it as we go*/);
+    }
+
+    @FXML
     void doInvoice(ActionEvent event) {
 
     }
@@ -327,40 +308,41 @@ public class LoginController {
 
     }
 
-
-    //System Admin Screen Actions
     @FXML
-    void doCreate(ActionEvent event) {
-
+    void doSell(ActionEvent event) {
+        String textArea = sellTextArea.getText();
+        //parse all the things
     }
 
+
+    //System Admin Screen Actions
     @FXML
     void doCreateSA(ActionEvent event) {
 
     }
 
     @FXML
-    void doCreateWM(ActionEvent event) {
+    void doCreateWm(ActionEvent event) {
 
     }
 
     @FXML
-    void doDeleteOM(ActionEvent event) {
+    void doDeleteSa(ActionEvent event) {
 
     }
 
     @FXML
-    void doDeleteSA(ActionEvent event) {
+    void doDeleteWm(ActionEvent event) {
 
     }
 
     @FXML
-    void doDeleteWM(ActionEvent event) {
+    void doOmCreate(ActionEvent event) {
 
     }
 
     @FXML
-    void doSave(ActionEvent event) {
+    void doOmDelete(ActionEvent event) {
 
     }
 
