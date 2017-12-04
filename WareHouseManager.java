@@ -2,12 +2,30 @@ package project3;
 
 /**
  *
- * @author Karen Cassine
+ * @author Karen Cassine, Katie Lamb
  */
-public class WarehouseManager extends Account{
-    
-    public WarehouseManager(String firstName, String LastName, String Password, String email, String UserName, String PhoneNumber) {
-        super(firstName, LastName, Password, PhoneNumber, email, UserName);
+public class WareHouseManager extends Account {
+
+    public WareHouseManager(String firstName,
+                            String lastName,
+                            String userName,
+                            String password,
+                            String email,
+                            String phoneNumber) {
+        super(firstName,
+                lastName,
+                userName,
+                password,
+                email,
+                phoneNumber);
+    }
+
+    public String getUserName(){
+        return super.getUserName();
+    }
+
+    public String getPassword(){
+        return super.getPassword();
     }
 
     public void displayPart(String bike_name, WareHouse warehouse){
