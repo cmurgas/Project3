@@ -308,7 +308,13 @@ public class LoginController {
     //office manager screen actions
     @FXML
     void doOrderOM(ActionEvent event) {
-
+        om_bikename.setCellValueFactory(new PropertyValueFactory<>("name"));
+        om_bikenumber.setCellValueFactory(new PropertyValueFactory<>("number"));
+        om_listPrice.setCellValueFactory(new PropertyValueFactory<>("listPrice"));
+        om_salesPrice.setCellValueFactory(new PropertyValueFactory<>("salePrice"));
+        om_onSale.setCellValueFactory(new PropertyValueFactory<>("onSale"));
+        om_quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        bikeparts_tree.setItems(data);
     }
 
     @FXML
