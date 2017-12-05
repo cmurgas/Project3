@@ -42,6 +42,11 @@ public class LoginController {
 
     //Office Manager Screen Fields
     @FXML
+    private TextField om_search_name;
+
+    @FXML
+    private TextField om_search_number;
+    @FXML
     private Button searchByName;
     @FXML
     private Button order_partsButton;
@@ -65,6 +70,8 @@ public class LoginController {
     private TextArea om_displayCommission;
     @FXML
     private Button salesCommissionButton;
+     @FXML
+    private TextArea om_display_bike;
 
 
     //Sales Associate Screen Fields
@@ -198,6 +205,7 @@ public class LoginController {
     private Button examineName;
     @FXML
     private Button examineNumber;
+   
 
 
     //MISC methods
@@ -335,13 +343,40 @@ public class LoginController {
 
     }
 
-    @FXML
+      @FXML
     void doSearchByName(ActionEvent event) {
-
+         mainWareHouse.addBikePart(red);
+        String name = om_search_name.getText();   
+        for(BikePart bp: mainWareHouse.getArrayList()){
+            if (bp.getName().equals(name)){
+                om_display_bike.appendText(bp.getName() + ", " +
+                       bp.getNumber() + ", " +
+                       bp.getPrice());
+           }
+        }
+    
+ 
     }
 
     @FXML
     void doSearchByNumber(ActionEvent event) {
+             
+       mainWareHouse.addBikePart(red);
+        String number = om_search_number.getText();
+        int num = Integer.parseInt(number);
+        
+          for(BikePart bp: mainWareHouse.getArrayList()){
+           if (bp.getNumber() == num){
+               om_display_bike.appendText(bp.getNumber() + ", " +
+                       bp.getNumber() + ", " +
+                       bp.getPrice());
+          
+           
+          }
+    }
+          
+        
+        
 
     }
 
