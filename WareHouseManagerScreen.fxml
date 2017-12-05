@@ -39,8 +39,8 @@
                                 <TextArea fx:id="dispalybike" layoutX="300.0" layoutY="49.0" prefHeight="229.0" prefWidth="282.0" />
                                 <Label layoutX="26.0" layoutY="84.0" text="Bike Name:" />
                                 <Label layoutX="14.0" layoutY="142.0" text="Bike Number:" />
-                                <Button fx:id="examine" layoutX="14.0" layoutY="198.0" mnemonicParsing="false" onAction="#doExamin" text="Examine Name" />
-                        <Button fx:id="examineNumber" layoutX="145.0" layoutY="198.0" mnemonicParsing="false" onAction="#doExamineNumber" text="Examine Number" />
+                                <Button fx:id="examineName" layoutX="14.0" layoutY="198.0" mnemonicParsing="false" onAction="#doExamineName" text="Examine Name" />
+                                <Button fx:id="examineNumber" layoutX="145.0" layoutY="198.0" mnemonicParsing="false" onAction="#doExamineNumber" text="Examine Number" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -54,4 +54,3 @@
         </Label>
     </children>
 </AnchorPane>
-
