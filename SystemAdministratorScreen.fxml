@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project3.LoginController">
     <children>
         <TabPane layoutY="38.0" prefHeight="361.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -23,14 +23,14 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <TableView layoutX="81.0" layoutY="4.0" prefHeight="207.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="om_table" layoutX="81.0" layoutY="4.0" prefHeight="207.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="First Name" />
-                                        <TableColumn prefWidth="82.8000259399414" text="Last Name" />
-                                          <TableColumn prefWidth="67.60000610351562" text="Username" />
-                                          <TableColumn maxWidth="88.80003356933594" minWidth="-1.0" prefWidth="72.80003356933594" text="Password" />
-                                          <TableColumn prefWidth="176.4000244140625" text="Email" />
-                                          <TableColumn prefWidth="121.99990844726562" text="Phone Number" />
+                                        <TableColumn fx:id="om_firstName" prefWidth="75.0" text="First Name" />
+                                        <TableColumn fx:id="om_lastName" prefWidth="82.8000259399414" text="Last Name" />
+                                          <TableColumn fx:id="om_username" prefWidth="67.60000610351562" text="Username" />
+                                          <TableColumn fx:id="om_password" maxWidth="88.80003356933594" minWidth="-1.0" prefWidth="72.80003356933594" text="Password" />
+                                          <TableColumn fx:id="om_email" prefWidth="176.4000244140625" text="Email" />
+                                          <TableColumn fx:id="om_phoneNumber" prefWidth="121.99990844726562" text="Phone Number" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -69,14 +69,14 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <TableView layoutX="64.0" layoutY="-7.0" prefHeight="207.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="sa_table" layoutX="64.0" layoutY="-7.0" prefHeight="207.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="First Name" />
-                                        <TableColumn prefWidth="85.20001983642578" text="Last Name" />
-                                          <TableColumn prefWidth="90.0" text="Username" />
-                                          <TableColumn prefWidth="87.59996032714844" text="Password" />
-                                          <TableColumn prefWidth="120.79998779296875" text="Email" />
-                                          <TableColumn prefWidth="138.80001831054688" text="Phone" />
+                                        <TableColumn fx:id="sa_firstName" prefWidth="75.0" text="First Name" />
+                                        <TableColumn fx:id="sa_lastName" prefWidth="85.20001983642578" text="Last Name" />
+                                          <TableColumn fx:id="sa_username" prefWidth="90.0" text="Username" />
+                                          <TableColumn fx:id="sa_password" prefWidth="87.59996032714844" text="Password" />
+                                          <TableColumn fx:id="sa_email" prefWidth="120.79998779296875" text="Email" />
+                                          <TableColumn fx:id="sa_phoneNumber" prefWidth="138.80001831054688" text="Phone" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -115,14 +115,14 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="183.0" prefWidth="598.0">
                                  <children>
-                                    <TableView layoutX="74.0" layoutY="-19.0" prefHeight="162.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="wm_table" layoutX="74.0" layoutY="-19.0" prefHeight="162.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="First Name" />
-                                        <TableColumn prefWidth="75.0" text="Last Name" />
-                                          <TableColumn prefWidth="75.0" text="Username" />
-                                          <TableColumn prefWidth="75.0" text="Password" />
-                                          <TableColumn prefWidth="75.0" text="Email" />
-                                          <TableColumn prefWidth="220.80001831054688" text="Phone" />
+                                        <TableColumn fx:id="wm_firstName" prefWidth="75.0" text="First Name" />
+                                        <TableColumn fx:id="wm_lastName" prefWidth="75.0" text="Last Name" />
+                                          <TableColumn fx:id="wm_username" prefWidth="75.0" text="Username" />
+                                          <TableColumn fx:id="wm_password" prefWidth="75.0" text="Password" />
+                                          <TableColumn fx:id="wm_email" prefWidth="75.0" text="Email" />
+                                          <TableColumn fx:id="wm_phoneNumber" prefWidth="220.80001831054688" text="Phone" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -133,7 +133,7 @@
                                       <items>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                              <children>
-                                                <TextField layoutX="31.0" layoutY="29.0" prefHeight="25.0" prefWidth="289.0" text="first,last,user,pass,email,phone" />
+                                                <TextField fx:id="newWmField" layoutX="31.0" layoutY="29.0" prefHeight="25.0" prefWidth="289.0" text="first,last,user,pass,email,phone" />
                                                 <Button fx:id="newWmButton" layoutX="320.0" layoutY="76.0" mnemonicParsing="false" onAction="#doCreateWm" text="Create" />
                                              </children>
                                           </AnchorPane>
@@ -160,5 +160,6 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
+      <Button fx:id="generatetablesbutton" layoutX="521.0" layoutY="11.0" mnemonicParsing="false" onAction="#generateTable" text="Generate" />
     </children>
 </AnchorPane>
