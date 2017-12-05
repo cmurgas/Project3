@@ -100,6 +100,16 @@ public class LoginController {
 
     //Sales Associate Screen Fields
     @FXML
+    private TextArea sellProducts;
+
+    @FXML
+    private Button generateSellProductButton;
+    @FXML
+    private TextArea loadVan;
+
+    @FXML
+    private Button genVanButton;
+    @FXML
     private TextField sellDateField;
     @FXML
     private MenuButton sa_menuBar;
@@ -416,6 +426,27 @@ public class LoginController {
     }
 
     //Sales Associate Screen Actions
+    @FXML
+    void generateSellProduct(ActionEvent event) {
+       for(BikePart bp: salesVan.getArrayList()){
+           sellProducts.appendText(bp.getName()+","+bp.getPrice()+","+bp.getQuantity());
+       }
+    }
+    @FXML
+    void loadVanGenerate(ActionEvent event) {
+        
+        for (BikePart bp: mainWareHouse.getArrayList()){
+            if(salesVan.containsPart(bp)){
+                BikePart salevan = salesVan.returnBikePart(bp.getName());
+                
+            loadVan.appendText(bp.getName()+","+bp.getQuantity()+","+salevan.getQuantity());
+        }
+            else{
+                loadVan.appendText(bp.getName()+","+bp.getQuantity()+",0");
+            }
+        }
+    
+    }
     @FXML
     void doSellAdd(ActionEvent event) {
         String bikePartName = sellPartNameField.getText();
