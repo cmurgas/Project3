@@ -34,6 +34,10 @@ public class LoginController {
     ArrayList<String> partNamesOrder = new ArrayList<>();
     ArrayList<Integer> partAmountsOrder = new ArrayList<>();
     String textContainer2 = null;
+    ArrayList<String> partNamesLoad = new ArrayList<>();
+    ArrayList<Integer> partAmountsLoad = new ArrayList<>();
+    String textContainer3 = null;
+    WareHouseFleet wareHouseFleet = new WareHouseFleet();
 
 
     //Login in Screen Fields
@@ -255,6 +259,8 @@ public class LoginController {
     //Login Screen Actions
     @FXML
     void doLogin(ActionEvent event) {
+        wareHouseFleet.addWareHouse(mainWareHouse);
+        wareHouseFleet.addWareHouse(salesVan);
         Account account1 = new SystemAdmin("","","admin","nimda","","");
         accountFleet.addAccount(account1);
         accountFleet.saveAccountChanges();
@@ -314,7 +320,7 @@ public class LoginController {
                 stage.setScene(scene);
                 stage.show();
             }catch(Exception e){
-                //e.printStackTrace();
+                e.printStackTrace();
             }
         }
 
@@ -401,8 +407,6 @@ public class LoginController {
                 om_display_bike.appendText(bp.getNumber() + ", " +
                         bp.getNumber() + ", " +
                         bp.getPrice());
-
-
             }
         }
     }
@@ -422,7 +426,13 @@ public class LoginController {
 
     @FXML
     void doLoadAdd(ActionEvent event) {
-
+        String bikePartName = loadPartNameField.getText();
+        BikePart bp = mainWareHouse.returnBikePart(bikePartName);
+        int loadAmount = Integer.parseInt(loadAmountField.getText());
+        partNamesLoad.add(bp.getName());
+        partAmountsLoad.add(loadAmount);
+        textContainer3 += (bp.getName() + "," + bp.getNumber() + "," + loadAmount + "\n");
+        loadTextArea.appendText(textContainer2);
     }
 
     @FXML
@@ -432,7 +442,7 @@ public class LoginController {
 
     @FXML
     void doLoadVan(ActionEvent event) {
-
+        wareHouseFleet.moveParts(partNamesLoad, partAmountsLoad, "mainWareHouse", "salesVan");
     }
 
     @FXML
