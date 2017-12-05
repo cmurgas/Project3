@@ -11,145 +11,145 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project3.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
     <children>
         <TabPane layoutY="38.0" prefHeight="361.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Office Managers">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.6363636363636364" layoutX="220.0" layoutY="66.0" orientation="VERTICAL" prefHeight="332.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <TableView fx:id="om_table" layoutX="81.0" layoutY="4.0" prefHeight="207.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <columns>
-                                        <TableColumn fx:id="om_firstName" prefWidth="75.0" text="First Name" />
-                                        <TableColumn fx:id="om_lastName" prefWidth="82.8000259399414" text="Last Name" />
-                                          <TableColumn fx:id="om_username" prefWidth="67.60000610351562" text="Username" />
-                                          <TableColumn fx:id="om_password" maxWidth="88.80003356933594" minWidth="-1.0" prefWidth="72.80003356933594" text="Password" />
-                                          <TableColumn fx:id="om_email" prefWidth="176.4000244140625" text="Email" />
-                                          <TableColumn fx:id="om_phoneNumber" prefWidth="121.99990844726562" text="Phone Number" />
-                                      </columns>
-                                    </TableView>
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <SplitPane dividerPositions="0.6006711409395973" layoutX="219.0" layoutY="-21.0" prefHeight="117.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <items>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                             <children>
-                                                <TextField fx:id="newOmField" layoutX="44.0" layoutY="33.0" prefHeight="25.0" prefWidth="259.0" text="first,last,user,pass,email,phone" />
-                                                <Button fx:id="newOmButton" layoutX="277.0" layoutY="76.0" mnemonicParsing="false" onAction="#doOmCreate" text="Create" />
-                                             </children>
-                                          </AnchorPane>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                             <children>
-                                                <TextField fx:id="deleteOmField" layoutX="27.0" layoutY="33.0" text="first,last" />
-                                                <Button fx:id="deleteOmButton" layoutX="150.0" layoutY="76.0" mnemonicParsing="false" onAction="#doOmDelete" text="Delete" />
-                                             </children>
-                                          </AnchorPane>
-                                      </items>
-                                    </SplitPane>
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children>
+                            <children>
+                                <SplitPane dividerPositions="0.6363636363636364" layoutX="220.0" layoutY="66.0" orientation="VERTICAL" prefHeight="332.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                            <children>
+                                                <TableView fx:id="om_table" layoutX="81.0" layoutY="4.0" prefHeight="207.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="om_firstName" prefWidth="75.0" text="First Name" />
+                                                        <TableColumn fx:id="om_lastName" prefWidth="82.8000259399414" text="Last Name" />
+                                                        <TableColumn fx:id="om_username" prefWidth="67.60000610351562" text="Username" />
+                                                        <TableColumn fx:id="om_password" maxWidth="88.80003356933594" minWidth="-1.0" prefWidth="72.80003356933594" text="Password" />
+                                                        <TableColumn fx:id="om_email" prefWidth="176.4000244140625" text="Email" />
+                                                        <TableColumn fx:id="om_phoneNumber" prefWidth="121.99990844726562" text="Phone Number" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                            <children>
+                                                <SplitPane dividerPositions="0.6006711409395973" layoutX="219.0" layoutY="-21.0" prefHeight="117.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <items>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                            <children>
+                                                                <TextField fx:id="newOmField" layoutX="44.0" layoutY="33.0" prefHeight="25.0" prefWidth="259.0" text="first,last,user,pass,email,phone" />
+                                                                <Button fx:id="newOmButton" layoutX="277.0" layoutY="76.0" mnemonicParsing="false" onAction="#doOmCreate" text="Create" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                            <children>
+                                                                <TextField fx:id="deleteOmField" layoutX="27.0" layoutY="33.0" text="first,last" />
+                                                                <Button fx:id="deleteOmButton" layoutX="150.0" layoutY="76.0" mnemonicParsing="false" onAction="#doDeleteOm" text="Delete" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </items>
+                                                </SplitPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </items>
+                                </SplitPane>
+                            </children>
                         </AnchorPane>
                     </content>
                 </Tab>
                 <Tab text="Sales Associates">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.6363636363636364" layoutX="155.0" layoutY="14.0" orientation="VERTICAL" prefHeight="332.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <TableView fx:id="sa_table" layoutX="64.0" layoutY="-7.0" prefHeight="207.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <columns>
-                                        <TableColumn fx:id="sa_firstName" prefWidth="75.0" text="First Name" />
-                                        <TableColumn fx:id="sa_lastName" prefWidth="85.20001983642578" text="Last Name" />
-                                          <TableColumn fx:id="sa_username" prefWidth="90.0" text="Username" />
-                                          <TableColumn fx:id="sa_password" prefWidth="87.59996032714844" text="Password" />
-                                          <TableColumn fx:id="sa_email" prefWidth="120.79998779296875" text="Email" />
-                                          <TableColumn fx:id="sa_phoneNumber" prefWidth="138.80001831054688" text="Phone" />
-                                      </columns>
-                                    </TableView>
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <SplitPane dividerPositions="0.6006711409395973" layoutX="177.0" layoutY="-43.0" prefHeight="117.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <items>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                             <children>
-                                                <TextField fx:id="newSaField" layoutX="54.0" layoutY="32.0" prefHeight="25.0" prefWidth="247.0" text="first,last,user,pass,email,phone" />
-                                                <Button fx:id="newSaButton" layoutX="268.0" layoutY="67.0" mnemonicParsing="false" onAction="#doCreateSA" text="Create" />
-                                             </children>
-                                          </AnchorPane>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                             <children>
-                                                <TextField fx:id="deleteSaField" layoutX="24.0" layoutY="32.0" text="first,last" />
-                                                <Button fx:id="deleteSaButton" layoutX="162.0" layoutY="69.0" mnemonicParsing="false" onAction="#doDeleteSa" text="Delete" />
-                                             </children>
-                                          </AnchorPane>
-                                      </items>
-                                    </SplitPane>
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children>
+                            <children>
+                                <SplitPane dividerPositions="0.6363636363636364" layoutX="155.0" layoutY="14.0" orientation="VERTICAL" prefHeight="332.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                            <children>
+                                                <TableView fx:id="sa_table" layoutX="64.0" layoutY="-7.0" prefHeight="207.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="sa_firstName" prefWidth="75.0" text="First Name" />
+                                                        <TableColumn fx:id="sa_lastName" prefWidth="85.20001983642578" text="Last Name" />
+                                                        <TableColumn fx:id="sa_username" prefWidth="90.0" text="Username" />
+                                                        <TableColumn fx:id="sa_password" prefWidth="87.59996032714844" text="Password" />
+                                                        <TableColumn fx:id="sa_email" prefWidth="120.79998779296875" text="Email" />
+                                                        <TableColumn fx:id="sa_phoneNumber" prefWidth="138.80001831054688" text="Phone" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                            <children>
+                                                <SplitPane dividerPositions="0.6006711409395973" layoutX="177.0" layoutY="-43.0" prefHeight="117.2" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <items>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                            <children>
+                                                                <TextField fx:id="newSaField" layoutX="54.0" layoutY="32.0" prefHeight="25.0" prefWidth="247.0" text="first,last,user,pass,email,phone" />
+                                                                <Button fx:id="newSaButton" layoutX="268.0" layoutY="67.0" mnemonicParsing="false" onAction="#doCreateSa" text="Create" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                            <children>
+                                                                <TextField fx:id="deleteSaField" layoutX="24.0" layoutY="32.0" text="first,last" />
+                                                                <Button fx:id="deleteSaButton" layoutX="162.0" layoutY="69.0" mnemonicParsing="false" onAction="#doDeleteSa" text="Delete" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </items>
+                                                </SplitPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </items>
+                                </SplitPane>
+                            </children>
                         </AnchorPane>
                     </content>
                 </Tab>
                 <Tab text="Warehouse Managers">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.6060606060606061" layoutX="203.0" layoutY="50.0" orientation="VERTICAL" prefHeight="332.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="183.0" prefWidth="598.0">
-                                 <children>
-                                    <TableView fx:id="wm_table" layoutX="74.0" layoutY="-19.0" prefHeight="162.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <columns>
-                                        <TableColumn fx:id="wm_firstName" prefWidth="75.0" text="First Name" />
-                                        <TableColumn fx:id="wm_lastName" prefWidth="75.0" text="Last Name" />
-                                          <TableColumn fx:id="wm_username" prefWidth="75.0" text="Username" />
-                                          <TableColumn fx:id="wm_password" prefWidth="75.0" text="Password" />
-                                          <TableColumn fx:id="wm_email" prefWidth="75.0" text="Email" />
-                                          <TableColumn fx:id="wm_phoneNumber" prefWidth="220.80001831054688" text="Phone" />
-                                      </columns>
-                                    </TableView>
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <SplitPane dividerPositions="0.709731543624161" layoutX="184.0" layoutY="14.0" prefHeight="162.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <items>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                             <children>
-                                                <TextField fx:id="newWmField" layoutX="31.0" layoutY="29.0" prefHeight="25.0" prefWidth="289.0" text="first,last,user,pass,email,phone" />
-                                                <Button fx:id="newWmButton" layoutX="320.0" layoutY="76.0" mnemonicParsing="false" onAction="#doCreateWm" text="Create" />
-                                             </children>
-                                          </AnchorPane>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                             <children>
-                                                <TextField fx:id="deleteWmField" layoutX="11.0" layoutY="26.0" text="first,last" />
-                                                <Button fx:id="deleteWmButton" layoutX="108.0" layoutY="86.0" mnemonicParsing="false" onAction="#doDeleteWm" text="Delete" />
-                                             </children>
-                                          </AnchorPane>
-                                      </items>
-                                    </SplitPane>
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children>
+                            <children>
+                                <SplitPane dividerPositions="0.6060606060606061" layoutX="203.0" layoutY="50.0" orientation="VERTICAL" prefHeight="332.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="183.0" prefWidth="598.0">
+                                            <children>
+                                                <TableView fx:id="wm_table" layoutX="74.0" layoutY="-19.0" prefHeight="162.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="wm_firstName" prefWidth="75.0" text="First Name" />
+                                                        <TableColumn fx:id="wm_lastName" prefWidth="75.0" text="Last Name" />
+                                                        <TableColumn fx:id="wm_username" prefWidth="75.0" text="Username" />
+                                                        <TableColumn fx:id="wm_password" prefWidth="75.0" text="Password" />
+                                                        <TableColumn fx:id="wm_email" prefWidth="75.0" text="Email" />
+                                                        <TableColumn fx:id="wm_phoneNumber" prefWidth="220.80001831054688" text="Phone" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                            <children>
+                                                <SplitPane dividerPositions="0.709731543624161" layoutX="184.0" layoutY="14.0" prefHeight="162.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <items>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                            <children>
+                                                                <TextField fx:id="newWmField" layoutX="31.0" layoutY="29.0" prefHeight="25.0" prefWidth="289.0" text="first,last,user,pass,email,phone" />
+                                                                <Button fx:id="newWmButton" layoutX="320.0" layoutY="76.0" mnemonicParsing="false" onAction="#doCreateWm" text="Create" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                            <children>
+                                                                <TextField fx:id="deleteWmField" layoutX="11.0" layoutY="26.0" text="first,last" />
+                                                                <Button fx:id="deleteWmButton" layoutX="108.0" layoutY="86.0" mnemonicParsing="false" onAction="#doDeleteWm" text="Delete" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </items>
+                                                </SplitPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </items>
+                                </SplitPane>
+                            </children>
                         </AnchorPane>
                     </content>
                 </Tab>
@@ -160,6 +160,6 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-      <Button fx:id="generatetablesbutton" layoutX="521.0" layoutY="11.0" mnemonicParsing="false" onAction="#generateTable" text="Generate" />
+        <Button fx:id="generatetablesbutton" layoutX="521.0" layoutY="11.0" mnemonicParsing="false" onAction="#generateTable" text="Generate" />
     </children>
 </AnchorPane>
