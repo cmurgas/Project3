@@ -561,13 +561,37 @@ public class LoginController {
         accountFleet.saveAccountChanges();
     }
 
-    @FXML
+   @FXML
     void doDeleteSa(ActionEvent event) {
+        
+      String delete = deleteSaField.getText();
+        
+       
+           for (Account sa : accountFleet.getAccounts()){
+            if (sa.getUserName().equals(delete)){
+        accountFleet.removeAccount(sa);
+        accountFleet.saveAccountChanges();
+            }
+           }
+        
+        
 
     }
 
     @FXML
     void doDeleteWm(ActionEvent event) {
+        
+          String delete = deleteWmField.getText();
+        
+           for (Account wm : accountFleet.getAccounts()){
+            if (wm.getUserName().equals(delete)){
+        accountFleet.removeAccount(wm);
+        accountFleet.saveAccountChanges();
+            }
+           }
+        
+        
+        
 
     }
 
@@ -589,6 +613,15 @@ public class LoginController {
 
     @FXML
     void doDeleteOm (ActionEvent event) {
+     
+        String delete = deleteOmField.getText();
+           for (Account om : accountFleet.getAccounts()){
+            if (om.getUserName().equals(delete)){
+        accountFleet.removeAccount(om);
+        accountFleet.saveAccountChanges();
+            }
+           }
+        
 
     }
 
