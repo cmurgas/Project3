@@ -12,35 +12,37 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project3.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project3.LoginController">
     <children>
         <TabPane layoutY="42.0" prefHeight="357.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Bike Parts">
                     <content>
-                        <AnchorPane fx:id="bikeparts_tab" prefHeight="466.0" prefWidth="600.0">
+                        <AnchorPane fx:id="bikeparts_tab" prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <TextField fx:id="om_search_name" layoutX="6.0" layoutY="179.0" text="Part Name" />
-                                <TextField fx:id="om_search_number" layoutX="6.0" layoutY="212.0" text="Part Number" />
-                                <TextArea fx:id="om_display_bike" layoutX="18.0" layoutY="242.0" prefHeight="80.0" prefWidth="208.0" />
+                                <TextField fx:id="om_search_name" layoutX="28.0" layoutY="179.0" text="Part Name" />
+                                <TextField fx:id="om_search_number" layoutX="28.0" layoutY="212.0" text="Part Number" />
+                                <TextArea fx:id="om_display_bike" layoutX="28.0" layoutY="240.0" prefHeight="80.0" prefWidth="208.0" />
                                 <Button fx:id="searchByName" layoutX="184.0" layoutY="179.0" mnemonicParsing="false" onAction="#doSearchByName" text="Search" />
                                 <Button fx:id="order_partsButton" layoutX="501.0" layoutY="288.0" mnemonicParsing="false" onAction="#doOrderOM" text="Order Parts" />
-                        <Button fx:id="searchByNumber" layoutX="184.0" layoutY="212.0" mnemonicParsing="false" onAction="#doSearchByNumber" text="Search" />
-                        <Text layoutX="44.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Display Part by Name or Number" />
-                        <TextArea fx:id="partsToOrderArea" layoutX="422.0" layoutY="176.0" prefHeight="103.0" prefWidth="175.0" />
-                        <Text layoutX="436.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parts to be ordered:" />
-                        <TextField fx:id="om_name_order" layoutX="250.0" layoutY="179.0" prefHeight="31.0" prefWidth="172.0" text="Part Name" />
-                        <Text layoutX="269.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add parts to order:" />
-                        <TextField fx:id="om_amount_order" layoutX="250.0" layoutY="212.0" prefHeight="31.0" prefWidth="173.0" text="Part Amount" />
-                        <Button fx:id="om_addOrderButton" layoutX="375.0" layoutY="242.0" mnemonicParsing="false" onAction="#doOrderAdd" text="Add" />
-                        <TableView fx:id="om_bikes" layoutX="184.0" layoutY="-28.0" prefHeight="153.0" prefWidth="600.0" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <columns>
-                            <TableColumn fx:id="om_bikename" prefWidth="189.20001828670502" text="Part Name" />
-                            <TableColumn fx:id="om_bikenumber" prefWidth="175.19998168945312" text="Part Number" />
-                              <TableColumn fx:id="om_bikeprice" prefWidth="102.39996337890625" text="Part Price" />
-                              <TableColumn fx:id="om_bikequantity" prefWidth="133.19998168945312" text="Current Quantity" />
-                          </columns>
-                        </TableView>
+                                <Button fx:id="searchByNumber" layoutX="184.0" layoutY="212.0" mnemonicParsing="false" onAction="#doSearchByNumber" text="Search" />
+                                <Text layoutX="44.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Display Part by Name or Number" />
+                                <TextArea fx:id="partsToOrderArea" layoutX="401.0" layoutY="179.0" prefHeight="103.0" prefWidth="175.0" />
+                                <Text layoutX="436.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parts to be ordered:" />
+                                <TextField fx:id="om_name_order" layoutX="245.0" layoutY="179.0" text="Part Name" />
+                                <Text layoutX="269.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add parts to order:" />
+                                <TextField fx:id="om_amount_order" layoutX="245.0" layoutY="218.0" text="Part Amount" />
+                                <Button fx:id="om_addOrderButton" layoutX="356.0" layoutY="256.0" mnemonicParsing="false" onAction="#doOrderAdd" text="Add" />
+                                <TableView fx:id="om_bikes" layoutX="184.0" layoutY="-28.0" prefHeight="153.0" prefWidth="600.0" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="om_partName" prefWidth="156.00000607967377" text="Part Name" />
+                                        <TableColumn fx:id="om_partNumber" prefWidth="134.0" text="Part Number" />
+                                        <TableColumn fx:id="om_listPrice" prefWidth="74.0" text="List Price" />
+                                        <TableColumn fx:id="om_salePrice" prefWidth="76.79998779296875" text="Sale Price" />
+                              <TableColumn fx:id="om_onSale" prefWidth="75.59994506835938" text="On Sale?" />
+                              <TableColumn fx:id="om_quantity" prefWidth="82.800048828125" text="Quantity" />
+                                    </columns>
+                                </TableView>
                             </children>
                         </AnchorPane>
                     </content>
@@ -56,7 +58,7 @@
                                 <Label layoutX="14.0" layoutY="88.0" text="Sales Associate:" />
                                 <Label layoutX="40.0" layoutY="142.0" text="Start Date:" />
                                 <Label layoutX="42.0" layoutY="190.0" text="End Date:" />
-                        <Button fx:id="salesCommissionButton" layoutX="185.0" layoutY="258.0" mnemonicParsing="false" onAction="#doSalesCommission" text="Generate" />
+                                <Button fx:id="salesCommissionButton" layoutX="185.0" layoutY="258.0" mnemonicParsing="false" onAction="#doSalesCommission" text="Generate" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -68,5 +70,6 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
+      <Button fx:id="om_generate" layoutX="521.0" layoutY="11.0" mnemonicParsing="false" onAction="#doOmGenerate" text="Generate" />
     </children>
 </AnchorPane>
