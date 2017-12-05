@@ -100,6 +100,10 @@ public class LoginController {
 
     //Sales Associate Screen Fields
     @FXML
+    private TextField startDate;
+    @FXML
+    private TextField endDate;
+    @FXML
     private TextField sellDateField;
     @FXML
     private MenuButton sa_menuBar;
@@ -435,9 +439,34 @@ public class LoginController {
         loadTextArea.appendText(textContainer2);
     }
 
-    @FXML
+      @FXML
     void doInvoice(ActionEvent event) {
-
+          
+        String startDateText = startDate.getText();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date startingDate = null;
+        try {
+            startingDate = format.parse(startDateText);
+        } catch (Exception e) { e.printStackTrace(); }
+        String endDateText = endDate.getText();
+        SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
+        Date endingDate = null;
+        try {
+            startingDate = format2.parse(endDateText);
+        } catch (Exception e) { e.printStackTrace(); }
+        SalesAssociate salesAssociate = null;
+        for (Account a : accountFleet.getAccounts()){
+            if (a.getUserName().equals(currentUser)){
+                salesAssociate = (SalesAssociate) a;
+            }
+        }
+        
+       sa_displayActions.appendText("Invoice for Sales Associate " + salesAssociate.getFirstName() + " " + salesAssociate.getLastName());
+       sa_displayActions.appendText("From the dates " + startingDate + " to " + endingDate);
+       for (Sale in : salesInvoice.generateInvoice(startingDate, endingDate, salesAssociate)){
+           System.out.println("Date:\t" + in.getSaleDate());
+           
+       }
     }
 
     @FXML
