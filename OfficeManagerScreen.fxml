@@ -10,33 +10,43 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project3.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
     <children>
         <TabPane layoutY="42.0" prefHeight="357.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Bike Parts">
                     <content>
-                        
+                        <TreeTableView prefHeight="200.0" prefWidth="200.0">
+                            <columns>
+                                <TreeTableColumn prefWidth="75.0" text="C1" />
+                                <TreeTableColumn prefWidth="75.0" text="C2" />
+                            </columns>
+                        </TreeTableView>
                     </content>
                     <content>
                         <AnchorPane fx:id="bikeparts_tab" prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <TextField fx:id="om_search_name" layoutX="87.0" layoutY="179.0" />
-                                <TextField fx:id="om_search_number" layoutX="87.0" layoutY="212.0" />
-                                <Label layoutX="34.0" layoutY="183.0" text="Name:" />
-                                <Label layoutX="28.0" layoutY="216.0" text="Number:" />
+                                <TextField fx:id="om_search_name" layoutX="28.0" layoutY="179.0" text="Part Name" />
+                                <TextField fx:id="om_search_number" layoutX="28.0" layoutY="212.0" text="Part Number" />
                                 <TextArea fx:id="om_display_bike" layoutX="28.0" layoutY="240.0" prefHeight="80.0" prefWidth="208.0" />
-                                <Button fx:id="search" layoutX="106.0" layoutY="151.0" mnemonicParsing="false" text="Search" />
-                                <Button fx:id="order_parts" layoutX="386.0" layoutY="151.0" mnemonicParsing="false" onAction="#doOrderOM" text="Order Parts" />
-                        <TableView fx:id="bikeparts_tree" layoutX="4.0" layoutY="5.0" prefHeight="139.0" prefWidth="590.0">
+                                <Button fx:id="searchByName" layoutX="184.0" layoutY="179.0" mnemonicParsing="false" onAction="#doSearchByName" text="Search" />
+                                <Button fx:id="order_partsButton" layoutX="501.0" layoutY="288.0" mnemonicParsing="false" onAction="#doOrderOM" text="Order Parts" />
+                        <Button fx:id="searchByNumber" layoutX="184.0" layoutY="212.0" mnemonicParsing="false" onAction="#doSearchByNumber" text="Search" />
+                        <Text layoutX="44.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Display Part by Name or Number" />
+                        <TextArea fx:id="partsToOrderArea" layoutX="401.0" layoutY="179.0" prefHeight="103.0" prefWidth="175.0" />
+                        <Text layoutX="436.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parts to be ordered:" />
+                        <TextField fx:id="om_name_order" layoutX="245.0" layoutY="179.0" text="Part Name" />
+                        <Text layoutX="269.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add parts to order:" />
+                        <TextField fx:id="om_amount_order" layoutX="245.0" layoutY="218.0" text="Part Amount" />
+                        <Button fx:id="om_addOrderButton" layoutX="356.0" layoutY="256.0" mnemonicParsing="false" onAction="#doOrderAdd" text="Add" />
+                        <TableView layoutX="184.0" layoutY="-28.0" prefHeight="153.0" prefWidth="600.0" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="om_bikename" prefWidth="124.0" text="Bike Name" />
-                            <TableColumn fx:id="om_bikenumber" prefWidth="130.39996337890625" text="Bike Number" />
-                              <TableColumn fx:id="om_listPrice" prefWidth="80.00006103515625" text="List Price" />
-                              <TableColumn fx:id="om_salesPrice" prefWidth="83.199951171875" text="Sales Price" />
-                              <TableColumn fx:id="om_onSale" prefWidth="87.199951171875" text="On Sale" />
-                              <TableColumn fx:id="om_quantity" prefWidth="100.00006103515625" text="Quantity" />
+                            <TableColumn prefWidth="189.20001828670502" text="Part Name" />
+                            <TableColumn prefWidth="175.19998168945312" text="Part Number" />
+                              <TableColumn prefWidth="102.39996337890625" text="Part Price" />
+                              <TableColumn prefWidth="133.19998168945312" text="Current Quantity" />
                           </columns>
                         </TableView>
                             </children>
@@ -47,9 +57,9 @@
                     <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <TextField fx:id="om_SA_search" layoutX="101.0" layoutY="84.0" />
-                                <TextField fx:id="om_StartDateSearch" layoutX="101.0" layoutY="138.0" />
-                                <TextField fx:id="om_endDateSearch" layoutX="101.0" layoutY="186.0" />
+                                <TextField fx:id="om_SA_search" layoutX="101.0" layoutY="84.0" text="firstName lastName" />
+                                <TextField fx:id="om_startDateField" layoutX="101.0" layoutY="138.0" text="dd/MM/yyyy" />
+                                <TextField fx:id="om_endDateField" layoutX="101.0" layoutY="186.0" text="dd/MM/yyyy" />
                                 <TextArea fx:id="om_displayCommission" layoutX="271.0" layoutY="17.0" prefHeight="294.0" prefWidth="314.0" />
                                 <Label layoutX="14.0" layoutY="88.0" text="Sales Associate:" />
                                 <Label layoutX="40.0" layoutY="142.0" text="Start Date:" />
