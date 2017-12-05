@@ -197,6 +197,9 @@ public class LoginController {
 
     @FXML // fx:id="examine"
     private Button examine; // Value injected by FXMLLoader
+    
+    @FXML // fx:id= "examineNumber"
+    private Button examineNumber; // Value injected by FXMLLoader
 
     public final ObservableList<BikePart> DATA
             = FXCollections.observableArrayList(
@@ -406,15 +409,53 @@ public class LoginController {
 
     }
 
+@FXML
+    void doExamineNumber(ActionEvent event) {
+         mainWareHouse.addBikePart(red);
+        String number = wm_bikenumber.getText();
+        int num = Integer.parseInt(number);
+        
+          for(BikePart bp: mainWareHouse.getArrayList()){
+           if (bp.getNumber() == num){
+               dispalybike.appendText(bp.getNumber() + ", " +
+                       bp.getNumber() + ", " +
+                       bp.getPrice());
+           }
+          }
+            
+        
+        
+        
+
+    }
+
 
     //WareHouse Manager Screen Actions
     @FXML
     void doExamin(ActionEvent event) {
+        mainWareHouse.addBikePart(red);
+        String name = wm_bikename.getText();   
+        for(BikePart bp: mainWareHouse.getArrayList()){
+            if (bp.getName().equals(name)){
+                dispalybike.appendText(bp.getName() + ", " +
+                       bp.getNumber() + ", " +
+                       bp.getPrice());
+           }
+       }
+          
+       
+        
+        
 
     }
 
     @FXML
     void doRead(ActionEvent event) {
-
+        
+      
+        String read = wm_filename.getText();
+        File file = new File(wm_filename.getText());
+        mainWareHouse.readInventoryUpdate(file);
+        
     }
 }
