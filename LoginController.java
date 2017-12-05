@@ -1,3 +1,4 @@
+package project3;
 /**
  * Sample Skeleton for 'Login.fxml' Controller Class
  */
@@ -214,10 +215,12 @@ public class LoginController {
             ;
 
     //Login Screen Actions
+    //Login Screen Actions
     @FXML
     void doLogin(ActionEvent event) {
         Account account1 = new SystemAdmin("","","admin","nimda","","");
         accountFleet.addAccount(account1);
+        accountFleet.saveAccountChanges();
 
         String userName = userNameField.getText();
         String password = passwordField.getText();
@@ -276,7 +279,6 @@ public class LoginController {
                 //e.printStackTrace();
             }
         }
-
     }
 
     //office manager screen actions
