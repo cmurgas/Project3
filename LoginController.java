@@ -28,6 +28,7 @@ public class LoginController {
     ArrayList<Integer> partAmounts = new ArrayList<>();
     ArrayList<Double> partPrices = new ArrayList<>();
     String textContainer = null;
+    WareHouse salesVan = new WareHouse("salesVan");
 
     //Login in Screen Fields
     @FXML // fx:id="passwordField"
@@ -367,6 +368,10 @@ public class LoginController {
             sellDate = format.parse(sellDateText);
         } catch (Exception e) { e.printStackTrace(); }
         Sale sale = new Sale(sellDate, partNames, partAmounts, partPrices, salesAssociate);
+        salesInvoice.addSale(sale);
+        for (int i = 0; i < partNames.size(); i++){
+            salesVan.sellPart(partNames.get(i), partAmounts.get(i));
+        }
     }
 
 
