@@ -15,7 +15,7 @@ public class SalesInvoice {
    }
 
 
-   public void generateInvoice(Date startDate, Date endDate, SalesAssociate salesAssociate){
+   public ArrayList<Sale> generateInvoice(Date startDate, Date endDate, SalesAssociate salesAssociate){
 
        invoice = new ArrayList<>();
 
@@ -30,13 +30,8 @@ public class SalesInvoice {
                invoice.add(sale);
            }
        }
-
-       System.out.println("Invoice for Sales Associate " + salesAssociate.getFirstName() + " " + salesAssociate.getLastName());
-       System.out.println("From the dates " + startDate + " to " + endDate);
-       for (Sale in : invoice){
-           System.out.println("Date:\t" + in.getSaleDate());
-           //print to text area "Invoice made"
-       }
+return invoice;
+       
 
        //create a new file with the contents of the invoice
        //the names quantities and prices for each sale
