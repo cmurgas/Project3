@@ -241,5 +241,15 @@ public class WareHouse {
         } catch (Exception e) { e.printStackTrace(); }
         
     }
+   
+   public BikePart returnBikePart(String name){
+        BikePart bikePart = null;
+        for (BikePart bp : wareHouse){
+            if (bp.getName().equals(name)){
+                bikePart = bp;
+            }
+        }
+        return bikePart;
+    }
 
 }
