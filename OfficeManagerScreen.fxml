@@ -18,14 +18,6 @@
             <tabs>
                 <Tab text="Bike Parts">
                     <content>
-                        <TreeTableView prefHeight="200.0" prefWidth="200.0">
-                            <columns>
-                                <TreeTableColumn prefWidth="75.0" text="C1" />
-                                <TreeTableColumn prefWidth="75.0" text="C2" />
-                            </columns>
-                        </TreeTableView>
-                    </content>
-                    <content>
                         <AnchorPane fx:id="bikeparts_tab" prefHeight="200.0" prefWidth="200.0">
                             <children>
                                 <TextField fx:id="om_search_name" layoutX="28.0" layoutY="179.0" text="Part Name" />
