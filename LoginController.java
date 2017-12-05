@@ -3,22 +3,27 @@
  */
 
 import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.fxml.FXMLLoader;
-        import javafx.scene.Parent;
-        import javafx.scene.Scene;
-        import javafx.scene.control.*;
-        import javafx.scene.layout.AnchorPane;
-        import javafx.stage.Stage;
-        import javafx.collections.FXCollections;
-        import javafx.collections.ObservableList;
-        import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class LoginController {
     WareHouse mainWareHouse;
     String currentUser;
-        
+    AccountFleet accountFleet = new AccountFleet();
+    SalesInvoice salesInvoice = new SalesInvoice();
+
     //Login in Screen Fields
     @FXML // fx:id="passwordField"
     private TextField passwordField; // Value injected by FXMLLoader
@@ -53,7 +58,7 @@ public class LoginController {
 
     @FXML
     private TableColumn<BikePart, Integer> om_quantity;
-        
+
     @FXML // fx:id="om_search_name"
     private TextField om_search_name; // Value injected by FXMLLoader
 
@@ -72,11 +77,11 @@ public class LoginController {
     @FXML // fx:id="om_SA_search"
     private TextField om_SA_search; // Value injected by FXMLLoader
 
-    @FXML // fx:id="om_StartDateSearch"
-    private TextField om_StartDateSearch; // Value injected by FXMLLoader
+    @FXML // fx:id="om_startDateField"
+    private TextField om_startDateField; // Value injected by FXMLLoader
 
-    @FXML // fx:id="om_endDateSearch"
-    private TextField om_endDateSearch; // Value injected by FXMLLoader
+    @FXML // fx:id="om_endDateField"
+    private TextField om_endDateField; // Value injected by FXMLLoader
 
     @FXML // fx:id="om_displayCommission"
     private TextArea om_displayCommission; // Value injected by FXMLLoader
@@ -86,65 +91,62 @@ public class LoginController {
 
 
     //Sales Associate Screen Fields
-    @FXML // fx:id="sellTextArea"
-    private TextArea sellTextArea; // Value injected by FXMLLoader
+    @FXML
+    private MenuButton sa_menuBar;
 
-    @FXML // fx:id="sa_menuBar"
-    private MenuButton sa_menuBar; // Value injected by FXMLLoader
+    @FXML
+    private TextArea sa_displayActions;
 
-    @FXML // fx:id="sa_displayActions"
-    private TextArea sa_displayActions; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<?, ?> sa_load_partName;
 
-    @FXML // fx:id="sa_load_partName"
-    private TableColumn<?, ?> sa_load_partName; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<?, ?> sa_mainWareHouseQuan;
 
-    @FXML // fx:id="sa_mainWareHouseQuan"
-    private TableColumn<?, ?> sa_mainWareHouseQuan; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<?, ?> sa_vanQuan;
 
-    @FXML // fx:id="sa_vanQuan"
-    private TableColumn<?, ?> sa_vanQuan; // Value injected by FXMLLoader
+    @FXML
+    private TextField loadPartNameField;
 
-    @FXML // fx:id="sa_transferNum"
-    private TableColumn<?, ?> sa_transferNum; // Value injected by FXMLLoader
+    @FXML
+    private TextField loadAmountField;
 
-    @FXML // fx:id="loadVanButton"
-    private Button loadVanButton; // Value injected by FXMLLoader
+    @FXML
+    private Button addPartToLoad;
 
-    @FXML // fx:id="salesTable"
-    private TreeTableView<?> salesTable; // Value injected by FXMLLoader
+    @FXML
+    private TextArea loadTextArea;
 
-    @FXML // fx:id="sellPartNameColumn"
-    private TreeTableColumn<?, ?> sellPartNameColumn; // Value injected by FXMLLoader
+    @FXML
+    private Button loadVanButton;
 
-    @FXML // fx:id="sellPartNumberColumn"
-    private TreeTableColumn<?, ?> sellPartNumberColumn; // Value injected by FXMLLoader
+    @FXML
+    private TextField sellPartNameField;
 
-    @FXML // fx:id="sellVanAmountColumn"
-    private TreeTableColumn<?, ?> sellVanAmountColumn; // Value injected by FXMLLoader
+    @FXML
+    private TextField sellAmountField;
 
-    @FXML // fx:id="sellPartNameField"
-    private TextField sellPartNameField; // Value injected by FXMLLoader
+    @FXML
+    private Button addPartToSale;
 
-    @FXML // fx:id="sellAmountField"
-    private TextField sellAmountField; // Value injected by FXMLLoader
+    @FXML
+    private TextArea sellTextArea;
 
-    @FXML // fx:id="addPartToSale"
-    private Button addPartToSale; // Value injected by FXMLLoader
+    @FXML
+    private Button sellButton;
 
-    @FXML // fx:id="sellButton"
-    private Button sellButton; // Value injected by FXMLLoader
+    @FXML
+    private DatePicker sa_startDate;
 
-    @FXML // fx:id="sa_startDate"
-    private DatePicker sa_startDate; // Value injected by FXMLLoader
+    @FXML
+    private DatePicker sa_endDate;
 
-    @FXML // fx:id="sa_endDate"
-    private DatePicker sa_endDate; // Value injected by FXMLLoader
+    @FXML
+    private ComboBox<?> sa_salesAssociates;
 
-    @FXML // fx:id="sa_salesAssociates"
-    private ComboBox<?> sa_salesAssociates; // Value injected by FXMLLoader
-
-    @FXML // fx:id="GenerateButton"
-    private Button GenerateButton; // Value injected by FXMLLoader
+    @FXML
+    private Button GenerateButton;
 
 
     //System Admin Screen Fields
@@ -204,18 +206,18 @@ public class LoginController {
     @FXML // fx:id="examine"
     private Button examine; // Value injected by FXMLLoader
 
-    public final ObservableList<BikePart> data
+    public final ObservableList<BikePart> DATA
             = FXCollections.observableArrayList(
-                    new BikePart("red",123,23.0,12.0,true,5),
-                    new BikePart("blue",234,17.0,13.0,false,6)
-            )
-        ;
+            new BikePart("red",123,23.0,12.0,true,5),
+            new BikePart("blue",234,17.0,13.0,false,6)
+    )
+            ;
 
     //Login Screen Actions
     @FXML
     void doLogin(ActionEvent event) {
         Account account1 = new SystemAdmin("","","admin","nimda","","");
-
+        accountFleet.addAccount(account1);
 
         String userName = userNameField.getText();
         String password = passwordField.getText();
@@ -224,12 +226,13 @@ public class LoginController {
         Stage stage = null;
         Parent root = null;
 
-        //for (Account a : accountFleet.getAccounts()){
-            //if ((account1.getUserName().equals(userName) && account1.getPassword().equals(password))){
-                //account =  a;
-            //}
-        //}
-        if (account1 instanceof SalesAssociate){
+        for (Account a : accountFleet.getAccounts()){
+            if ((account1.getUserName().equals(userName) && account1.getPassword().equals(password))) {
+                account = a;
+            }
+        }
+
+        if (account instanceof SalesAssociate){
             try {
                 stage = (Stage) loginButton.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("SalesAssociateScreen.fxml"));
@@ -240,7 +243,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
-        else if (account1 instanceof WareHouseManager){
+        else if (account instanceof WareHouseManager){
             try {
                 stage = (Stage) loginButton.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("WareHouseManagerScreen.fxml"));
@@ -251,7 +254,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
-        else if (account1 instanceof  OfficeManager){
+        else if (account instanceof  OfficeManager){
             try {
                 stage = (Stage) loginButton.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("OfficeManagerScreen.fxml"));
@@ -262,7 +265,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
-        else if (account1 instanceof SystemAdmin){
+        else if (account instanceof SystemAdmin){
             try {
                 stage = (Stage) loginButton.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("SystemAdminScreen.fxml"));
@@ -285,17 +288,42 @@ public class LoginController {
         om_salesPrice.setCellValueFactory(new PropertyValueFactory<>("salePrice"));
         om_onSale.setCellValueFactory(new PropertyValueFactory<>("onSale"));
         om_quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        bikeparts_tree.setItems(data);
+        bikeparts_tree.setItems(DATA);
     }
 
     @FXML
     void doSalesCommission(ActionEvent event) {
+        SalesAssociate salesAssociate = null;
+        String sa = om_SA_search.getText();//sa will now be the first and last names of the SA
+        String [] ssaa = sa.split(" ");
+        for (Account a : accountFleet.getAccounts()){
+            if (a.getFirstName().equalsIgnoreCase(ssaa[0]) && a.getLastName().equalsIgnoreCase(ssaa[1])){
+                salesAssociate = (SalesAssociate) a;
+            }
+        }
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        String startDateText = om_startDateField.getText();
+        String endDateText = om_endDateField.getText();
+        Date startDate = null;
+        Date endDate = null;
+        try {
+            startDate = format.parse(startDateText);
+            endDate = format.parse(startDateText);
+        } catch (Exception e) { e.printStackTrace(); }
+
+        double commission = salesInvoice.salesCommission(startDate, endDate, salesAssociate);
+        om_displayCommission.setText(Double.toString(commission));
 
     }
 
     //Sales Associate Screen Actions
     @FXML
-    void doAdd(ActionEvent event) {
+    void doSellAdd(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doLoadAdd(ActionEvent event) {
         String bikePartName = sellPartNameField.getText();
         BikePart bp = mainWareHouse.returnBikePart(bikePartName);
         int sellAmount = Integer.parseInt(sellAmountField.getText());
