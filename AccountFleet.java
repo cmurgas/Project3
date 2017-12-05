@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author Karen Cassine, Katie Lamb
  */
 public class AccountFleet {
-    ArrayList<Account> accountFleet;
+    ArrayList<Account> accountFleet = new ArrayList<>();
     File file;
 
 
@@ -19,7 +19,6 @@ public class AccountFleet {
         file = new File("AccountFleet.txt");
         try{
             if (file.createNewFile()) {
-                accountFleet = new ArrayList<>();
                 System.out.println("account fleet created.");
             }
         }
@@ -54,7 +53,7 @@ public class AccountFleet {
     public void saveAccountChanges(){
         if(accountFleet.size() > 0){
             try {
-                FileWriter fileWriter = new FileWriter(file);
+                FileWriter fileWriter = new FileWriter(file, true);
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 for(Account acc : accountFleet){
                     bufferedWriter.write(acc.getFirstName()+","+
@@ -106,5 +105,3 @@ public class AccountFleet {
             System.out.println("accountFleet not found");
     }
 }
-
-
