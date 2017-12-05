@@ -100,10 +100,6 @@ public class LoginController {
 
     //Sales Associate Screen Fields
     @FXML
-    private TextField startDate;
-    @FXML
-    private TextField endDate;
-    @FXML
     private TextField sellDateField;
     @FXML
     private MenuButton sa_menuBar;
@@ -143,6 +139,10 @@ public class LoginController {
     private ComboBox<?> sa_salesAssociates;
     @FXML
     private Button GenerateButton;
+    @FXML
+    private TextField startDate;
+    @FXML
+    private TextField endDate;
 
 
     //System Admin Screen Fields
@@ -439,9 +439,9 @@ public class LoginController {
         loadTextArea.appendText(textContainer2);
     }
 
-      @FXML
+    @FXML
     void doInvoice(ActionEvent event) {
-          
+
         String startDateText = startDate.getText();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date startingDate = null;
@@ -460,13 +460,12 @@ public class LoginController {
                 salesAssociate = (SalesAssociate) a;
             }
         }
-        
-       sa_displayActions.appendText("Invoice for Sales Associate " + salesAssociate.getFirstName() + " " + salesAssociate.getLastName());
-       sa_displayActions.appendText("From the dates " + startingDate + " to " + endingDate);
-       for (Sale in : salesInvoice.generateInvoice(startingDate, endingDate, salesAssociate)){
-           System.out.println("Date:\t" + in.getSaleDate());
-           
-       }
+
+        sa_displayActions.appendText("Invoice for Sales Associate " + salesAssociate.getFirstName() + " " + salesAssociate.getLastName());
+        sa_displayActions.appendText("From the dates " + startingDate + " to " + endingDate);
+        for (Sale in : salesInvoice.generateInvoice(startingDate, endingDate, salesAssociate)){
+            sa_displayActions.appendText("Date:\t" + in.getSaleDate());
+        }
     }
 
     @FXML
