@@ -14,13 +14,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 
 public class LoginController {
-    WareHouse mainWareHouse;
+    WareHouse mainWareHouse = new WareHouse("mainWareHouse");
     String currentUser;
     AccountFleet accountFleet = new AccountFleet();
     SalesInvoice salesInvoice = new SalesInvoice();
@@ -31,50 +32,37 @@ public class LoginController {
     WareHouse salesVan = new WareHouse("salesVan");
 
     //Login in Screen Fields
-    @FXML // fx:id="passwordField"
-    private TextField passwordField; // Value injected by FXMLLoader
+    @FXML
+    private TextField passwordField;
+    @FXML
+    private TextField userNameField;
+    @FXML
+    private Button loginButton;
 
-    @FXML // fx:id="userNameField"
-    private TextField userNameField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="loginButton"
-    private Button loginButton; // Value injected by FXMLLoader
 
     //Office Manager Screen Fields
-
     @FXML
     private Button searchByName;
-
     @FXML
     private Button order_partsButton;
-
     @FXML
     private Button searchByNumber;
-
     @FXML
     private TextArea partsToOrderArea;
-
     @FXML
     private TextField om_name_order;
-
     @FXML
     private TextField om_amount_order;
-
     @FXML
     private Button om_addOrderButton;
-
     @FXML
     private TextField om_SA_search;
-
     @FXML
     private TextField om_startDateField;
-
     @FXML
     private TextField om_endDateField;
-
     @FXML
     private TextArea om_displayCommission;
-
     @FXML
     private Button salesCommissionButton;
 
@@ -82,61 +70,42 @@ public class LoginController {
     //Sales Associate Screen Fields
     @FXML
     private TextField sellDateField;
-
     @FXML
     private MenuButton sa_menuBar;
-
     @FXML
     private TextArea sa_displayActions;
-
     @FXML
     private TableColumn<?, ?> sa_load_partName;
-
     @FXML
     private TableColumn<?, ?> sa_mainWareHouseQuan;
-
     @FXML
     private TableColumn<?, ?> sa_vanQuan;
-
     @FXML
     private TextField loadPartNameField;
-
     @FXML
     private TextField loadAmountField;
-
     @FXML
     private Button addPartToLoad;
-
     @FXML
     private TextArea loadTextArea;
-
     @FXML
     private Button loadVanButton;
-
     @FXML
     private TextField sellPartNameField;
-
     @FXML
     private TextField sellAmountField;
-
     @FXML
     private Button addPartToSale;
-
     @FXML
     private TextArea sellTextArea;
-
     @FXML
     private Button sellButton;
-
     @FXML
     private DatePicker sa_startDate;
-
     @FXML
     private DatePicker sa_endDate;
-
     @FXML
     private ComboBox<?> sa_salesAssociates;
-
     @FXML
     private Button GenerateButton;
 
@@ -144,69 +113,54 @@ public class LoginController {
     //System Admin Screen Fields
     @FXML
     private TextField newOmField;
-
     @FXML
     private Button newOmButton;
-
     @FXML
     private TextField deleteOmField;
-
     @FXML
     private Button deleteOmButton;
-
     @FXML
     private TextField newSaField;
-
     @FXML
     private Button newSaButton;
-
     @FXML
     private TextField deleteSaField;
-
     @FXML
     private Button deleteSaButton;
-
     @FXML
     private Button newWmButton;
-
     @FXML
     private TextField deleteWmField;
-
     @FXML
     private Button deleteWmButton;
 
 
     //WareHouse Manager Screen Fields
-    @FXML // fx:id="wm_filename"
-    private TextField wm_filename; // Value injected by FXMLLoader
+    @FXML
+    private TextField wm_filename;
+    @FXML
+    private TextArea updated_warehouse;
+    @FXML
+    private Button read_file;
+    @FXML
+    private TextField wm_bikename;
+    @FXML
+    private TextField wm_bikenumber;
+    @FXML
+    private TextArea dispalybike;
+    @FXML
+    private Button examineName;
+    @FXML
+    private Button examineNumber;
 
-    @FXML // fx:id="updated_warehouse"
-    private TextArea updated_warehouse; // Value injected by FXMLLoader
 
-    @FXML // fx:id="read_file"
-    private Button read_file; // Value injected by FXMLLoader
-
-    @FXML // fx:id="wm_bikename"
-    private TextField wm_bikename; // Value injected by FXMLLoader
-
-    @FXML // fx:id="wm_bikenumber"
-    private TextField wm_bikenumber; // Value injected by FXMLLoader
-
-    @FXML // fx:id="dispalybike"
-    private TextArea dispalybike; // Value injected by FXMLLoader
-
-    @FXML // fx:id="examine"
-    private Button examine; // Value injected by FXMLLoader
-    
-    @FXML // fx:id= "examineNumber"
-    private Button examineNumber; // Value injected by FXMLLoader
-
+    //MISC methods
     public final ObservableList<BikePart> DATA
             = FXCollections.observableArrayList(
             new BikePart("red",123,23.0,12.0,true,5),
             new BikePart("blue",234,17.0,13.0,false,6)
-    )
-            ;
+    );
+
 
     //Login Screen Actions
     @FXML
@@ -275,6 +229,7 @@ public class LoginController {
         }
 
     }
+
 
     //office manager screen actions
     @FXML
@@ -409,53 +364,40 @@ public class LoginController {
 
     }
 
-@FXML
-    void doExamineNumber(ActionEvent event) {
-         mainWareHouse.addBikePart(red);
-        String number = wm_bikenumber.getText();
-        int num = Integer.parseInt(number);
-        
-          for(BikePart bp: mainWareHouse.getArrayList()){
-           if (bp.getNumber() == num){
-               dispalybike.appendText(bp.getNumber() + ", " +
-                       bp.getNumber() + ", " +
-                       bp.getPrice());
-           }
-          }
-            
-        
-        
-        
-
-    }
-
 
     //WareHouse Manager Screen Actions
     @FXML
-    void doExamin(ActionEvent event) {
-        mainWareHouse.addBikePart(red);
-        String name = wm_bikename.getText();   
+    void doExamineNumber(ActionEvent event) {
+        //mainWareHouse.addBikePart(red);
+        String number = wm_bikenumber.getText();
+        int num = Integer.parseInt(number);
+        for(BikePart bp: mainWareHouse.getArrayList()){
+            if (bp.getNumber() == num){
+                dispalybike.appendText(bp.getNumber() + ", " +
+                        bp.getNumber() + ", " +
+                        bp.getPrice());
+            }
+        }
+    }
+
+    @FXML
+    void doExamineName(ActionEvent event) {
+        //mainWareHouse.addBikePart(red);
+        String name = wm_bikename.getText();
         for(BikePart bp: mainWareHouse.getArrayList()){
             if (bp.getName().equals(name)){
                 dispalybike.appendText(bp.getName() + ", " +
-                       bp.getNumber() + ", " +
-                       bp.getPrice());
-           }
-       }
-          
-       
-        
-        
-
+                        bp.getNumber() + ", " +
+                        bp.getPrice());
+            }
+        }
     }
 
     @FXML
     void doRead(ActionEvent event) {
-        
-      
         String read = wm_filename.getText();
         File file = new File(wm_filename.getText());
         mainWareHouse.readInventoryUpdate(file);
-        
+
     }
 }
