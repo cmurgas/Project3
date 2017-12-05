@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -23,6 +24,10 @@ public class LoginController {
     String currentUser;
     AccountFleet accountFleet = new AccountFleet();
     SalesInvoice salesInvoice = new SalesInvoice();
+    ArrayList<String> partNames = new ArrayList<>();
+    ArrayList<Integer> partAmounts = new ArrayList<>();
+    ArrayList<Double> partPrices = new ArrayList<>();
+    String textContainer = null;
 
     //Login in Screen Fields
     @FXML // fx:id="passwordField"
@@ -74,6 +79,9 @@ public class LoginController {
 
 
     //Sales Associate Screen Fields
+    @FXML
+    private TextField sellDateField;
+
     @FXML
     private MenuButton sa_menuBar;
 
@@ -133,27 +141,6 @@ public class LoginController {
 
 
     //System Admin Screen Fields
-        @FXML
-    private TableView<Account> om_table;
-
-    @FXML
-    private TableColumn<Account, String> om_firstName;
-
-    @FXML
-    private TableColumn<Account, String> om_lastName;
-
-    @FXML
-    private TableColumn<Account, String> om_username;
-
-    @FXML
-    private TableColumn<Account, String> om_password;
-
-    @FXML
-    private TableColumn<Account, String> om_email;
-
-    @FXML
-    private TableColumn<Account, String> om_phoneNumber;
-
     @FXML
     private TextField newOmField;
 
@@ -165,26 +152,6 @@ public class LoginController {
 
     @FXML
     private Button deleteOmButton;
-
-    @FXML
-    private TableView<Account> sa_table;
-
-    @FXML
-    private TableColumn<Account, String> sa_firstName;
-
-    @FXML
-    private TableColumn<Account, String> sa_lastName;
-
-    @FXML
-    private TableColumn<Account, String> sa_username;
-
-    @FXML
-    private TableColumn<Account, String> sa_password;
-
-    @FXML
-    private TableColumn<Account, String> sa_email;
-      @FXML
-    private TableColumn<Account, String> sa_phoneNumber;
 
     @FXML
     private TextField newSaField;
@@ -199,30 +166,6 @@ public class LoginController {
     private Button deleteSaButton;
 
     @FXML
-    private TableView<Account> wm_table;
-
-    @FXML
-    private TableColumn<Account, String> wm_firstName;
-
-    @FXML
-    private TableColumn<Account, String> wm_lastName;
-
-    @FXML
-    private TableColumn<Account, String> wm_username;
-
-    @FXML
-    private TableColumn<Account, String> wm_password;
-
-    @FXML
-    private TableColumn<Account, String> wm_email;
-
-    @FXML
-    private TableColumn<Account, String> wm_phoneNumber;
-    
-     @FXML
-    private TextField newWmField;
-
-    @FXML
     private Button newWmButton;
 
     @FXML
@@ -230,9 +173,6 @@ public class LoginController {
 
     @FXML
     private Button deleteWmButton;
-
-
-
 
 
     //WareHouse Manager Screen Fields
@@ -263,22 +203,6 @@ public class LoginController {
             new BikePart("blue",234,17.0,13.0,false,6)
     )
             ;
-        public final ObservableList<Account> wareHouseManagers
-            = FXCollections.observableArrayList(
-                    new Account("red","eye","bullseye","char","burn@email.com","6549867"),
-                    new Account("orange","fruit","dkfd","adlkfjs","orange@email.com","2345667")
-            );
-    public final ObservableList<Account> salesAssociates
-            = FXCollections.observableArrayList(
-                    new Account("blue","eye","bullseye","char","burn@email.com","6549867"),
-                    new Account("yellow","fruit","dkfd","adlkfjs","orange@email.com","2345667")
-            );
-    public final ObservableList<Account> officeManagers
-            = FXCollections.observableArrayList(
-                    new Account("teal","eye","bullseye","char","burn@email.com","6549867"),
-                    new Account("green","fruit","dkfd","adlkfjs","orange@email.com","2345667")
-            );
-
 
     //Login Screen Actions
     @FXML
@@ -297,6 +221,7 @@ public class LoginController {
         for (Account a : accountFleet.getAccounts()){
             if ((account1.getUserName().equals(userName) && account1.getPassword().equals(password))) {
                 account = a;
+                currentUser = account.getUserName();
             }
         }
 
@@ -352,7 +277,7 @@ public class LoginController {
     void doOrderAdd(ActionEvent event) {
 
     }
-
+/*
     @FXML
     void doOrderOM(ActionEvent event) {
         om_bikename.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -363,7 +288,7 @@ public class LoginController {
         om_quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         bikeparts_tree.setItems(DATA);
     }
-
+*/
     @FXML
     void doSalesCommission(ActionEvent event) {
         SalesAssociate salesAssociate = null;
@@ -381,7 +306,7 @@ public class LoginController {
         Date endDate = null;
         try {
             startDate = format.parse(startDateText);
-            endDate = format.parse(startDateText);
+            endDate = format.parse(endDateText);
         } catch (Exception e) { e.printStackTrace(); }
 
         double commission = salesInvoice.salesCommission(startDate, endDate, salesAssociate);
@@ -402,17 +327,19 @@ public class LoginController {
     //Sales Associate Screen Actions
     @FXML
     void doSellAdd(ActionEvent event) {
-
+        String bikePartName = sellPartNameField.getText();
+        BikePart bp = mainWareHouse.returnBikePart(bikePartName);
+        int sellAmount = Integer.parseInt(sellAmountField.getText());
+        partNames.add(bp.getName());
+        partAmounts.add(sellAmount);
+        partPrices.add(bp.getPrice());
+        textContainer += (bp.getName() + "," + bp.getNumber() + "," + bp.getPrice() + "," + sellAmount + "\n");
+        sellTextArea.setText(textContainer);
     }
 
     @FXML
     void doLoadAdd(ActionEvent event) {
-        String bikePartName = sellPartNameField.getText();
-        BikePart bp = mainWareHouse.returnBikePart(bikePartName);
-        int sellAmount = Integer.parseInt(sellAmountField.getText());
-        //String textContainer = null;
-        //textContainer += (bp.getName() + "," + bp.getNumber() + "," + bp.getPrice() + "," + sellAmount + "\n");
-        sellTextArea.setText(""/*find a way to add to it as we go*/);
+
     }
 
     @FXML
@@ -427,37 +354,33 @@ public class LoginController {
 
     @FXML
     void doSell(ActionEvent event) {
-        String textArea = sellTextArea.getText();
-        //parse all the things
+        SalesAssociate salesAssociate = null;
+        for (Account a : accountFleet.getAccounts()){
+            if (a.getUserName().equals(currentUser)){
+                salesAssociate = (SalesAssociate) a;
+            }
+        }
+        String sellDateText = sellDateField.getText();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date sellDate = null;
+        try {
+            sellDate = format.parse(sellDateText);
+        } catch (Exception e) { e.printStackTrace(); }
+        Sale sale = new Sale(sellDate, partNames, partAmounts, partPrices, salesAssociate);
     }
 
 
     //System Admin Screen Actions
-        @FXML
+    @FXML
     void doCreateSA(ActionEvent event) {
-        String text = newSaField.getText();
-        String [] ss = text.split(",");
-               Account createSa = new SalesAssociate(ss[0],
-                       ss[1],
-                       ss[2],
-                       ss[3],
-                       ss[4],
-                       ss[5]);
-        salesAssociates.add(createSa);
-    }}
+
+    }
 
     @FXML
-    void doCreateWM(ActionEvent event) {
-        String text = newWmField.getText();
-        String [] ss = text.split(",");
-               Account createWm = new WareHouseManager(ss[0],
-                       ss[1],
-                       ss[2],
-                       ss[3],
-                       ss[4],
-                       ss[5]);
-        wareHouseManagers.add(createWm);
+    void doCreateWm(ActionEvent event) {
+
     }
+
     @FXML
     void doDeleteSa(ActionEvent event) {
 
@@ -469,30 +392,8 @@ public class LoginController {
     }
 
     @FXML
-    void doCreateOM(ActionEvent event) {
-    wm_firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        wm_lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        wm_username.setCellValueFactory(new PropertyValueFactory<>("userName"));
-        wm_password.setCellValueFactory(new PropertyValueFactory<>("password"));
-        wm_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        wm_phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-        wm_table.setItems(wareHouseManagers);
-        
-        om_firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        om_lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        om_username.setCellValueFactory(new PropertyValueFactory<>("userName"));
-        om_password.setCellValueFactory(new PropertyValueFactory<>("password"));
-        om_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        om_phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-        om_table.setItems(officeManagers);
-        
-        sa_firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        sa_lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        sa_username.setCellValueFactory(new PropertyValueFactory<>("userName"));
-        sa_password.setCellValueFactory(new PropertyValueFactory<>("password"));
-        sa_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        sa_phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-        sa_table.setItems(salesAssociates);
+    void doOmCreate(ActionEvent event) {
+
     }
 
     @FXML
