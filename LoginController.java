@@ -1,4 +1,3 @@
-package project3;
 /**
  * Sample Skeleton for 'Login.fxml' Controller Class
  */
@@ -36,59 +35,42 @@ public class LoginController {
     private Button loginButton; // Value injected by FXMLLoader
 
     //Office Manager Screen Fields
-    @FXML // fx:id="bikeparts_tab"
-    private AnchorPane bikeparts_tab; // Value injected by FXMLLoader
 
     @FXML
-    private TableView<BikePart> bikeparts_tree;
+    private Button searchByName;
 
     @FXML
-    private TableColumn<BikePart, String> om_bikename;
+    private Button order_partsButton;
 
     @FXML
-    private TableColumn<BikePart, Integer> om_bikenumber;
+    private Button searchByNumber;
 
     @FXML
-    private TableColumn<BikePart, Double> om_listPrice;
+    private TextArea partsToOrderArea;
 
     @FXML
-    private TableColumn<BikePart, Double> om_salesPrice;
+    private TextField om_name_order;
 
     @FXML
-    private TableColumn<BikePart, Boolean> om_onSale;
+    private TextField om_amount_order;
 
     @FXML
-    private TableColumn<BikePart, Integer> om_quantity;
+    private Button om_addOrderButton;
 
-    @FXML // fx:id="om_search_name"
-    private TextField om_search_name; // Value injected by FXMLLoader
+    @FXML
+    private TextField om_SA_search;
 
-    @FXML // fx:id="om_search_number"
-    private TextField om_search_number; // Value injected by FXMLLoader
+    @FXML
+    private TextField om_startDateField;
 
-    @FXML // fx:id="om_display_bike"
-    private TextArea om_display_bike; // Value injected by FXMLLoader
+    @FXML
+    private TextField om_endDateField;
 
-    @FXML // fx:id="search"
-    private Button search; // Value injected by FXMLLoader
+    @FXML
+    private TextArea om_displayCommission;
 
-    @FXML // fx:id="order_parts"
-    private Button order_parts; // Value injected by FXMLLoader
-
-    @FXML // fx:id="om_SA_search"
-    private TextField om_SA_search; // Value injected by FXMLLoader
-
-    @FXML // fx:id="om_startDateField"
-    private TextField om_startDateField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="om_endDateField"
-    private TextField om_endDateField; // Value injected by FXMLLoader
-
-    @FXML // fx:id="om_displayCommission"
-    private TextArea om_displayCommission; // Value injected by FXMLLoader
-
-    @FXML // fx:id="salesCommissionButton"
-    private Button salesCommissionButton; // Value injected by FXMLLoader
+    @FXML
+    private Button salesCommissionButton;
 
 
     //Sales Associate Screen Fields
@@ -215,7 +197,6 @@ public class LoginController {
             ;
 
     //Login Screen Actions
-    //Login Screen Actions
     @FXML
     void doLogin(ActionEvent event) {
         Account account1 = new SystemAdmin("","","admin","nimda","","");
@@ -279,9 +260,15 @@ public class LoginController {
                 //e.printStackTrace();
             }
         }
+
     }
 
     //office manager screen actions
+    @FXML
+    void doOrderAdd(ActionEvent event) {
+
+    }
+
     @FXML
     void doOrderOM(ActionEvent event) {
         om_bikename.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -315,6 +302,16 @@ public class LoginController {
 
         double commission = salesInvoice.salesCommission(startDate, endDate, salesAssociate);
         om_displayCommission.setText(Double.toString(commission));
+
+    }
+
+    @FXML
+    void doSearchByName(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doSearchByNumber(ActionEvent event) {
 
     }
 
